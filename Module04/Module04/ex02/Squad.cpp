@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/17 20:03:06 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/19 16:21:03 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/08/19 18:41:33 by avan-dam      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ Squad::~Squad()
     {
         delete this->_marine[i];
     }
-    delete this->_marine;
+    delete [] this->_marine;
 }
 
 Squad::Squad()

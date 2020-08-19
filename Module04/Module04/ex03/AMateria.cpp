@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/19 16:36:31 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/19 17:04:30 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/08/19 18:10:10 by avan-dam      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ AMateria::AMateria( const AMateria & src )
     return ;
 }
 
+// WHILE ASSIGNING A MATERia TO ANOTHER, COPYING DOESNT MAKKE SENSE
+// WHAT DOES tHIS MEAN
 AMateria::AMateria &    AMateria::operator=(  const AMateria & rhs )
 {
     if (this != & rhs)
@@ -61,13 +63,12 @@ unsigned int AMateria::getXP() const
     return this->_xp;
 }
 
-// NOT RIGHT 
 void AMateria::use(ICharacter& target)
 {
     this->_xp = this->_xp + 10;
     if  (this->_type == "Ice")
-        std::cout << "* shoots an ice bolt at NAME *" << std::endl;
+        std::cout << "* shoots an ice bolt at " << target.getName() <<" *" << std::endl;
     if (this->_type == "Cure")
-        std::cout << "* heals "<< << " wounds *" << std::endl;
+        std::cout << "* heals "<< target.getName() << " wounds *" << std::endl;
     return ;
 }
