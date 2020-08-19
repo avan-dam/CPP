@@ -1,0 +1,61 @@
+SUB-TYPING POLyMORPHISM:
+
+As a warrior is a character may handle it as a chaacter too 
+class Character{}
+class Warrior : public Character {}
+main(){
+    Warrior* a = new Warrior();
+    // This is also OK because Warrior IS a Character - here is behaves as a character
+    Character* b = new Warrior();
+}
+
+unless there is virtual 
+
+virtual means the linkage will be dynamic and not static
+
+
+virtual member function is called a method
+A method is a member function which resolution will be dynamic,
+so it will be done during the execution.
+
+ABSTRACT CLASSES AND INTERFACE:
+class Acharacter {
+    public:
+        virtual void    attack(std::string const & target) = 0; 
+};
+pure method - doesnt exist
+this is a pure function - the method cannot be implement 
+there is no definition for this method 
+so we cannot instantiate the class
+so the class will have a behaviour that is missing
+therefore it will be abstract
+therefore it is in Acharacter class which is an abstract class
+
+To make an abstract class (convention not an obligation just makes it clear) prepend a capital A to the start of the class name
+
+so when a class inherits the Acharacter class it should implement 
+the behviour of the pure method.
+
+so what the above actually mean is all the children classes must have the attack behaviour
+even though the mother class does not have it
+
+An abstract class means that some behaviours are and some arent
+An abstract class itself cannot be instantiated.
+To be instantiated a class inheriting this abstract class will have to implement the behviours of the parent class
+which are defined as abstract otherwise it will remain as abstract and it wont be able to instantiate it either
+
+Can have abstract behaviours only, by doing so i will create an interface which we will 
+prefix with an I for interface (also only a convention to make it clear)
+
+Can have a name string in the Abstract class I just wont be able to instantiate it there
+
+Interface I can have attributes, this restriction has been made to define the interface just as a way to establish a contract for the inheriting
+classes. Interfaces are a interface to use with derived objects just a way to define a behviour, concretely in my e.g. make a coffee maker interface
+this just fill and make
+
+ICoffeeMaker forces every object inheriting from ICoffeeMAker to have its behaviours
+
+very useful - subtype molyporphism 
+
+research more about differences between interface and abstract classes 
+

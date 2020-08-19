@@ -1,0 +1,109 @@
+
+NEW and DELETE:
+memory allocation
+new and delete replace malloc() and free()
+
+In c++ can also use malloc but based on classes that will not go well because doesn't call the constructor of your object and free does not call the destructor
+so use new and delete which handel the memory allocation using malloc() in reality then call the constructors or destructors of our objects 
+
+e.g. 00
+The contructor takes and login and logout
+in the main bracket allocated two students.
+Bob is allocated on the STACK and pass it the login bfubar
+    Student bob = Student("bfubar");
+and automatically deallocated when the stack is cleaned up.
+
+THEN allocate a studen in a dynamic way.
+Already have a pointer on student which I name Jim and use new to allocate it
+    Student* jim = new Student("jfubar");
+syntax new and parameter between brackets if i need some (here jfubar).
+It allocated memory dynamically using malloc in practice but dont need to know it
+then call the constructor of student to initialize it correctly 
+and it will return a pointer on the instance i am getting.
+So here I have student and I can do stuff with it.
+THEN remember to deallocate it using delete
+    delete jim;
+Then when exit the function and bfubar dies.
+
+To allocate an array using new please delete using delete []
+To delete the array delete [] students
+
+REFERENCES:
+References are just an alias for an existing variable
+References is a pointer that is constant and always unreferenced and never void 
+    int&    ballsRef = numberOfBalls; //this is a reference of type int& this means the type is referenced on int and assign numberOfBalls to it and not the address of numberOfBalls
+references you assign a variable directly
+type int&
+the reference will be pointing on that variable
+from that moment cannot change what my reference is pointing on
+it is always pointing to the same item
+so cannot write create int& ballsRef2 because this creates a reference pointing on nothing
+and since it is constant cannot make it point on something else later
+So cannot create an uninitialized reference
+So when you have a rference you are sure it is pointin gon something not zero.
+But cannot be sure what was allocated hasnt been unallocated at some pointer
+
+so use ballsRef directly it is like a dereferenced pointer 
+ballsRef is like an alias for number of balls at any moment ballsRef refers to numberOfBalls and not itself
+as we change it we dont care at all.
+    std::cout << numberOfBalls << " " << *ballsPtr << " " << ballsRef << std::endl;
+the above outputs numberOfBalls three times, once as itself,  once using the pointer and once using the reference
+
+To assign something to what is pointed to by ballsRef just use ballsRef and not *ballsRef or &ballsRef
+just 
+ballsRef = 84
+
+void    byPtr(std::string* str)
+{
+    *str += " and ponies";
+}
+void    byRef(std::string const & str)
+{
+    str += " and ponies";
+}
+The only difference between byPtr() and byRef() is that instead of passing a string pointer I am passing a string reference
+The below also work the same
+void    byConstPtr(std::string const * str)
+{
+    std::cout << *str << std:: endl;
+}
+void    byConstRef(std::string const & str)
+{
+    std::cout << str << std:: endl;
+}
+
+using a const functioon on a non const variable isnt a pproblem
+however afterwards not allowed to change login as its const
+
+References compliment pointers do not replace them
+References are like non-void constants and always dereferenced pointers
+
+pointers for things that do not eexist at the begining 
+
+So if at somepoint it doesnt exist or if it should change use a pointer
+if it should always exist and never change use references!
+
+
+FILESTREAMS:
+streams to interact with FILES
+ifstream = input filestream
+ofstream = output filestream
+
+Create an input filestream then call ifs 
+and pass numbers as a parameter 
+so will create an input stream then open the numbers file and link it to the stream 
+the output will be a stream from which we are able to read
+In eg read two intergers that I will be able to output then I will close 
+ifs.open as well
+can read in many different ways
+cplusplus.com
+FILESTREAMS
+example writes I like 
+
+other exisiting streams too
+string streams 
+istring streams
+ostring streams
+equivalent of fscan etc.
+- e.g. allows log output
+

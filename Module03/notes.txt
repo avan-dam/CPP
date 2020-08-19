@@ -1,0 +1,44 @@
+Heritage: a way to factorise behaviours of a set of different classes with similar behaviours and 
+put them together in a single clas sto allow children objects to use those behvaiours.
+
+Class Animal {
+};
+class Cat: public Animal {
+}
+
+Cat inherits from the animal publicly so cat is an animal it can also have its own behaviours as 
+well as animal behaviours 
+
+can also have the same functions in both animal and cat. The more specific replaces.
+When you add functions to animal classes inheriting from it will also have these.
+Write member classes in conocial from.
+Look up how to call constructor of parent how to make sure deconstructor called for both classes.
+Meaning cat inherits from the animal from the animal means the cat has an animal part. So when 
+want to instantiate a cat I have to instantiate an animal first then on top of that have to 
+instantiate what is speicif to the cat to create a cat and not just an animal.
+
+Protected used only for heritage and will be added to public and private.
+Public = accessible from anywhere
+Protected = only accessible from an instance of the class or an instance of a child class
+Private = always accessible from an instance of the class & not child classes.
+
+Class Quad 
+{
+	private:
+		std::string name // only accessible from Quad obejct
+	protected:
+		leg legs[4]; //accesible from Quad or derived object
+	public:
+		void run(); // accessible from wherever
+}
+
+encapsulation level of inhertiance can be public, private or protected, so far only seen public
+
+Here all the attributes inherited from the main class wont necessarily keep the same level of encapsulation.
+
+Also look into mulitple inheritance
+So far only been doing simple inheritance here we inherit from one class at a time but could be animal and quad class both inherit to dog.
+What to do if both have competting same functions.
+Or DIAMOND INHERITANCE
+Not often useful but sometimes.
+Need ways of managing it.

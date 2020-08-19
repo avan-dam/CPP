@@ -1,0 +1,388 @@
+
+
+ADHOC POLYMORPHISM(function overloading):
+- Allows you to define many functions having the same name but accepting different parameters
+function overloading is not just for class member functions, it works on any function
+The principle is that you have a one and only function name and different parametrs for every overloading
+This will allow you to specialise the process of a function based on its parameters
+
+
+OPERATOR OVERLOAD:
+prefix (functional notation) 
++(1, 1)
++ 1 1
+
++(1, 1)
+
+infix notation: 1 + 1
+postfix notation: 1 1 +
+
+prefix notation: + 1 1
+Assignment operator overload:
+        Interger & operator=(Interger const & rhs);
+(Only current instance will be returned)
+Addition operator overload:
+        Interger operator+(Interger const & rhs) const;
+(current instance passed is a hidden parameter, addition doesnt change any of the two operands therefore member function is const as current instance is never changed)
+A special keyword operator will allow to make a simple declaration of a member function of my class
+An operator overload, just specify which operator i am refering to between the operator and the opening brackets
+
+The number of parameters is related to the binary or onarity of operator
+Asignment operator is binary by definition: so on left the item we assign to and on left the item we want to assign
+similarly addition has operand on left and other one on right
+
+Remeber by defualt it is passing systematically as a first parameter all your member functions when they are called an instance of the current class
+so really have two parameters in the fucntions above
+
+To differentiate post and preincrementation we need a parameter
+
+        Interger & operator=(Interger const & rhs);
+only current instance returned 
+so it allows you to chain assignments
+but addition just return a copy of the result (new instance created in the plus operator)
+
+so + operators returns a copy
+
+std::ostream & operator <<( std::ostream & o, Interger const & rhs );
+{
+     o << rhs.getvalue();
+     return o;
+}
+
+<< operator
+will take as parameter a reference on an o stream instance
+cat use the syntax of the member functions with <<
+so just overload the function
+and as a second parameter my class
+
+overload of << operator allows me to get the hidden int of my x instance and make the output  
+
+Rules:
+- Overload must be natural - if the behaviour of the operator is strange it should be avoided
+- The overload of your operator must be related to the natural operator
+- Just dont do it (operator overload) - cases where operator overloads make sense are rare
+
+CANONICAL FORM(coplian form):
+a way of building basic classes
+A class is in a cononical form when it has at least a default and copy constructor
+A copy constructor is a constructor taking as a parameter an instance of the class we are defining to make a copy of this class
+There is also an = assignment operator allowing to make assignments from an instance of this class
+and a destrcutor
+so need a destructor a copy an assignment and ?
+
+So all classes to make it cononical should have:
+- Default constructor
+- Copy constructor (new instance)
+- Equal (assignment operator) (update of current instance)
+- Destructor
+
+Sometimes good to serialise your class into a string to allow you to output
+
+
+https://www.cprogramming.com/tutorial/floating_point/understanding_floating_point.html
+Floating point numbers provide a kind of illusion; they look like "real" numbers, with 
+decimals and possibly very large or small magnitudes. In reality, a 4-byte floating point
+number, for example, can actually hold fewer distinct values than a 4-byte integer. The 
+reason for this is, of course, that the internal representation of floating point numbers 
+is not straightforward. Bits representing an integer are interpreted literally as a binary number, 
+while bits in a floating point number have a more complicated interpretation.
+
+Integer arithmetic enjoys the property of complete accuracy: if I have the integer "2", it is exactly 2
+However, integers lack precision. Dividing both 5 and 4 by 2, for instance, will both yield 2. Integers 
+are unable to keep track of the fractional part, so the information that I had a slightly bigger number 
+than 4 (namely, 5) is lost in the process. 
+
+Floating point numbers are the exact opposite of integers with respect to accuracy and precision. They 
+have good precision, since they never deliberately discard information representing your numbers. If you 
+had enough bits, you could reverse any FP calculation to get the original number, just like how, with enough 
+bits, you could represent an arbitrarily large integer. But floating point numbers have poor accuracy.
+in many cases there is literally no hope of a floating point answer's matching the correct answer bit for bit.
+
+Floating point numbers are inherently different from integers in that not every fraction can be represented 
+exactly in binary, whereas any integer can. Consider the number 1/3. No finite decimal digit representation 
+(e.g. 0.333333) can ever be equal to 1/3; we can never have enough 3's. Thus it is more than likely that 
+the computed result you need cannot be represented accurately by a finite floating point variable—you're 
+going to be wrong by at least a little bit no matter what you do. We know that floats are still useful, 
+though; we just have to prevent those little roundoff errors from stepping on our toes. To that end, 
+and also for general edification, it's nice to know how floats actually work.
+
+https://www.cprogramming.com/tutorial/floating_point/understanding_floating_point_representation.html
+Most common float point representations: IEEE-754 standard
+
+An IEEE-754 float (4 bytes) or double (8 bytes) has three components (there is also an analogous 96-bit 
+extended-precision format under IEEE-854): a sign bit telling whether the number is positive or negative, 
+an exponent giving its order of magnitude, and a mantissa specifying the actual digits of the number. 
+Using single-precision floats as an example, here is the bit layout:
+
+ seeeeeeeemmmmmmmmmmmmmmmmmmmmmmm    meaning
+31                              0    bit #
+
+s = sign bit, e = exponent, m = mantissa
+
+EQAL:
+"What do you mean by equality?" For most people, equality means "close enough". In this spirit, 
+programmers usually learn to test equality by defining some small distance as "close enough" and 
+seeing if two numbers are that close. It goes something like this:
+
+#define EPSILON 1.0e-7 
+#define flt_equals(a, b) (fabs((a)-(b)) < EPSILON)
+People usually call this distance EPSILON, even though it is not the epsilon of the FP representation.
+
+In reality this method can be very bad, and you should be aware of whether it is appropriate for your 
+application or not. The problem is that it does not take the exponents of the two numbers into account; 
+it assumes that the exponents are close to zero.
+
+OVERFLOW:
+you can't tell that this integer overflowed just by looking at it; it looks the same as any zero.
+Most CPUs will actually set a flag bit whenever an operation overflows checking this!
+
+one of the truly nice things about floats is that when they overflow, you are conveniently left with 
++/-inf. These quantities tend to behave as expected: +inf is greater than any other number, -inf is 
+less than any other number, inf+1 equals inf, and so on. This property makes floats useful for checking 
+overflow in integer math as well. You can do a calculation in floating point, then simply compare the 
+result to something like INT_MAX before casting back to integer.
+
+You have to be careful, because your float might not have enough precision to preserve an entire integer. 
+A 32-bit integer can represent any 9-digit decimal number, but a 32-bit float only offers about 7 digits 
+of precision. So if you have large integers, making this conversion will clobber them. Thankfully, doubles 
+have enough precision to preserve a whole 32-bit integer (notice, again, the analogy between floating point 
+precision and integer dynamic range). Also, there is some overhead associated with converting between numeric 
+types, going from float to int or between float and double.
+
+you must try to avoid overflowing results needlessly. Often the final result of a computation is smaller than 
+some of the intermediate values involved; even though your final result is representable, you might overflow 
+during an intermediate step. Avoid this numerical faux pas! The classic example (from "Numerical Recipes in C") 
+is computing the magnitude of a complex number. The naive implementation is:
+
+double magnitude(double re, double im)
+{
+    return sqrt(re*re + im*im);
+}
+instead have the function as:
+double magnitude(double re, double im)
+{
+    double r;
+ 
+    re = fabs(re);
+    im = fabs(im);
+    if (re > im) {
+        r = im/re;
+        return re*sqrt(1.0+r*r);
+    }
+    if (im == 0.0)
+        return 0.0;
+    r = re/im;
+    return im*sqrt(1.0+r*r);
+}
+
+All we did was rearrange the formula by bringing an re or im outside the square root. Which one we bring out 
+depends on which one is bigger; if we square im/re when im is larger, we still risk overflow. If im is 1e200 
+and re is 1, clearly we don't want to square im/re, but squaring re/im is ok since it is 1e-400 which is rounded 
+to zero—close enough to get the right answer. Notice the asymmetry: large magnitudes can get you lost at +inf, but 
+small magnitudes end up as zero (not -inf), which is a good approximation.
+
+LOSS OF SIGNIFICANCE:
+"Loss of significance" refers to a class of situations where you end up inadvertently losing precision 
+(discarding information) and potentially ending up with laughably bad results.
+
+As we have seen, the 1.m representation prevents waste by ensuring that nearly all floats have full 
+precision. Even if only the rightmost bit of the mantissa is set (assuming a garden-variety exponent), 
+all the zeros before it count as significant figures because of that implied 1. However, if we were to 
+subtract two numbers that were very close to each other, the implied ones would cancel, along with 
+whatever mantissa digits matched. If the two numbers differed only in their last bit, our answer 
+would be accurate to only one bit!
+Just like we avoided overflow in the complex magnitude function, there is essentially always a way 
+to rearrange a computation to avoid subtracting very close quantities
+An example of a technique that might work would be changing polynomials to be functions of 1/x 
+instead of x (this can help when computing the quadratic formula, for one).
+
+If you're lucky and the small terms of your series don't amount to much anyway, then this problem 
+will not bite you. However, often a large number of small terms can make a significant contribution 
+to a sum. In these cases, if you're not careful you will keep losing precision until you are left 
+with a mess. Sometimes people literally sort the terms of a series from smallest to largest before 
+summing if this problem is a major concern.
+
+A RULE OF THUMB:
+To simplify things, the way we often think about loss of precision problems is that a float gradually 
+gets "corrupted" as you do more and more operations on it.
+This makes algorithms with lots of "feedback" (taking previous outputs as inputs) suspect. Often you 
+have a choice between modifying some quantity incrementally or explicitly; you could say "x += inc" 
+on each iteration of a loop, or you could use "x = n*inc" instead. Incremental approaches tend to 
+be faster, and in this simple case there isn't likely to be a problem, but for numerical stability 
+"refreshing" a value by setting it in terms of stable quantities is preferred.
+
+Sometimes a program needs to keep track of a changing fraction of some kind, a scaling factor 
+perhaps. In this situation you know that the number you are storing is rational, so you can 
+avoid all the problems of floating point math by storing it as an integer numerator and denominator. 
+This is particularly easy for unit fractions; if you need to move around among 1/2, 1/3, 1/4, etc., 
+you should clearly be storing only the denominator and regenerating 1.0/denom whenever you need the 
+fraction as a float.
+
+https://www.cprogramming.com/tutorial/floating_point/understanding_floating_point_printing.html
+POSTLUDE:
+here's a routine that prints real numbers a little more nicely, automatically adjusting format 
+codes depending on what kind of number you give it. You can specify how big or small a number 
+can get before moving to scientific notation, and you can still specify field widths as in 
+the usual "%n.nf" format.
+
+#include <ieee754.h>
+#define LOG2_10 3.321928095
+ 
+#define flt_zero(x) (fabs(x) < EPSILON)
+ 
+int max_digs_rt = 3;  /* maximum # of 0's right of decimal before using
+                         scientific notation */
+int max_digs_lf = 5;  /* max # of digits left of decimal */
+ 
+void print_real(double r, int width, int dec)
+{
+    int mag;
+    double fpart, temp;
+    char format[8];
+    char num_format[3] = {'l',0,0};
+    union ieee754_double *dl;
+ 
+    dl = (union ieee754_double*)&r;
+    mag = (dl->ieee.exponent - IEEE754_DOUBLE_BIAS) / LOG2_10;
+    if (r == 0)
+        mag = 0;
+    if ((mag > max_digs_lf-1) || (mag < -max_digs_rt)) {
+        num_format[1] = 'e';
+        temp = r/pow(10, mag);      /* see if number will have a decimal */
+        fpart = temp - floor(temp); /* when written in scientific notation */
+    }
+    else {
+        num_format[1] = 'f';
+        fpart = r - floor(r);
+    }
+    if (flt_zero(fpart))
+        dec = 0;
+    if (width == 0) {
+        snprintf(format, 8, "%%.%d%s", dec, num_format);
+    }
+    else {
+        snprintf(format, 8, "%%%d.%d%s", width, dec, num_format);
+    }
+    printf(format, r);
+}
+
+
+https://inst.eecs.berkeley.edu//~cs61c/sp06/handout/fixedpt.html
+The use of fixed point data type is used widely in digital signal processing 
+(DSP) and game applications, where performance is sometimes more important 
+than precision. As we will see later, fixed point arithmetic is much faster 
+than floating point arithmetic.
+
+A binary point is like the decimal point in a decimal system. It acts as a 
+divider between the integer and the fractional part of a number.
+
+In a decimal system, a decimal point denotes the position in a numeral 
+that the coefficient should multiply by 100 = 1. For example, in the 
+numeral 26.5, the coefficient 6 has a weight of 100 = 1. But what 
+happen to the 5 to the right of decimal point? We know from our 
+experience, that it carries a weight of 10-1. We know the numeral 
+"26.5" represents the value "twenty six and a half" because
+
+2 * 101 + 6 * 100 + 5 * 10-1 = 26.5
+The very same concept of decimal point can be applied to our 
+binary representation, making a "binary point". As in the 
+decimal system, a binary point represents the coefficient 
+of the term 20 = 1. All digits (or bits) to the left of 
+the binary point carries a weight of 20, 21, 22, and so 
+on. Digits (or bits) on the right of binary point carries a 
+weight of 2-1, 2-2, 2-3, and so on. For example, the number:
+11010.12
+represents the value:
+25	24	23	22	21	20	2-1	2-2	2-3
+...	1	1	0	1	0	1	0	...
+= 1 * 24 + 1 * 23 + 0 * 22 + 1 * 21 + 0* 20 + 1 * 2-1
+= 16 + 8 + 2 + 0.5
+= 26.5
+
+the bit pattern of 53 and 26.5 is exactly the same. The only 
+difference, is the position of binary point. In the case of 5310, 
+there is "no" binary point. Alternatively, we can say the binary 
+point is located at the far right, at position 0. 
+
+In the case of 26.510, binary point is located one position to 
+the left of 5310:
+
+shifting an integer to the right by 1 bit position is equivalent 
+to dividing the number by 2. In the case of integer, since we 
+don't have a fractional part, we simply cannot represent digit 
+to the right of a binary point, making this shifting process an 
+integer division. However, it is simply a limitation of integer 
+representations of binary number.
+
+In general, mathematically, given a fixed binary point position, 
+shifting the bit pattern of a number to the right by 1 bit always 
+divide the number by 2. Similarly, shifting a number to the left 
+by 1 bit multiplies the number by 2.
+
+FIXED POINT NUMBER REPRESENTATION:
+To represent a real number in computers (or any hardware in general), 
+we can define a fixed point number type simply by implicitly fixing 
+the binary point to be at some position of a numeral. We will then 
+simply adhere to this implicit convention when we represent numbers.
+
+To define a fixed point type conceptually, all we need are two parameters:
+width of the number representation, and
+binary point position within the number
+
+We will use the notation fixed<w,b> for the rest of this article, where w 
+denotes the number of bits used as a whole (the Width of a number), and b 
+denotes the position of binary point counting from the least significant 
+bit (counting from 0).
+
+For example, fixed<8,3> denotes a 8-bit fixed point number, of which 3 
+right most bits are fractional. Therefore, the bit pattern:
+0	0	0	1	0	1	1	0
+represents a real number:
+00010.1102
+= 1 * 21 + 1 * 2-1 + 1 * 2-1
+= 2 + 0.5 + 0.25
+= 2.75
+
+NEGATIVE NUMBERS:
+In computer, we use 2's complement to represent negative numbers. One 
+of the property of 2's complement numbers is that arithmetic operations 
+of either positive of negative numbers are identical. It includes, 
+addition, subtraction, and not surprisingly, shifting. We can divide 
+negative 2's complement numbers by 2 via a simple 1 bit right shift 
+with sign extension as we can do so with positive numbers.
+
+
+Pros and Cons of Fixed Point Number Representation:
+All the arithmetic operations a computer can operate on integer can 
+therefore be applied to fixed point number as well.
+
+Therefore, the benefit of fixed point arithmetic is that they are 
+as straight-forward and efficient as integers arithmetic in computers. 
+We can reuse all the hardware built to for integer arithmetic to 
+perform real numbers arithmetic using fixed point representation. 
+In other word, fixed point arithmetic comes for free on computers.
+The disadvantage of fixed point number, is than of course the loss 
+of range and precision when compare with floating point number 
+representations. For example, in a fixed<8,1> representation, 
+our fractional part is only precise to a quantum of 0.5. We 
+cannot represent number like 0.75. We can represent 0.75 with 
+fixed<8,2>, but then we loose range on the integer part.
+
+we can simply reuse the integer type int in C to perform fixed 
+point arithmetic. The position of binary point only matters in 
+cases when we print it on screen or perform arithmetic with 
+different "type" (such as when adding int to fixed<32,6>).
+
+Fixed point is a simple yet very powerful way to represent 
+fractional numbers in computer. By reusing all integer 
+arithmetic circuits of a computer, fixed point arithmetic 
+is orders of magnitude faster than floating point arithmetic. 
+This is the reason why it is being used in many game and DSP 
+applications. On the other hand, it lacks the range and precision 
+that floating point number representation offers. You, as a 
+programmer or circuit designer, must do the tradeoff.
+
+
+
+
+

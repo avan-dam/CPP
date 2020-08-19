@@ -1,0 +1,262 @@
+NAMESPACES:
+- A new notion that will allow to group together symbols and functions and having a semantic relation in the same set (this set, this bag will be the namespace).
+e.g. main.cpp
+#include <stdio.h>
+
+int		gl_var = 1;
+int		f( void ) {return 2; }
+
+namespace 	Foo	{
+	int	gl_var = 3;
+	int	f(void) {return 4; }
+}
+
+namespace Bar {
+	int	gl_var = 5;
+	int	f(void) {return 6; }	
+}
+
+namespace Huf = Bar;
+
+int main(void) {
+	printf("gl_var:	[%d]\n", gl_var );
+	printf("f():	[%d]\n\n", f() );
+
+	printf("Foo::gl_var:	[%d]\n", Foo::gl_var );
+	printf("Foo::f():	[%d]\n\n", Foo::f() );
+
+	printf("Bar::gl_var:	[%d]\n", Bar::gl_var );
+	printf("Bar::f():	[%d]\n\n", Bar::f() );
+
+	printf("Huf::gl_var:	[%d]\n", Huf::gl_var );
+	printf("Huf::f():	[%d]\n\n", Huf::f() );
+
+	printf("::gl_var:	[%d]\n", ::gl_var );
+	printf("::f():		[%d]\n\n", ::f() );
+}
+Scope resolution operator: e.g. foo::gl_var allows you to output this call in the foo namespace. To access variables and functions in certain namespaces. 
+Huf namespace just an alias for the Bar namespace so if all goes well then they should output the same.
+Last part of main :: means empty mainspace, so the first and last part of the main are the same i.e. gl_var: ====== ::gl_var:
+
+To compile!!
+g++ -Wall -Wextra -Werror main.cpp
+./a.out
+Output is:
+gl_var:	[1]
+f():	[2]
+
+Foo::gl_var:	[3]
+Foo::f():	[4]
+
+Bar::gl_var:	[5]
+Bar::f():	[6]
+
+Huf::gl_var:	[5]
+Huf::f():	[6]
+
+::gl_var:	[1]
+::f():		[2]
+
+Std:: you can find the whole standard c=+ library - this is the standard namespace
+
+STDIO STREAMS:
+C++ provides objects - cin and cout corresponding respectively to the standard input and output just by reading a writing these objects you can fetch and write data on the stdinput and output
+Also >> and << allow you to copy these dataflows
+cin = standard input stream (object)
+coout = standard output stream (object)
+cerr = standard output stream for errors
+clog = standard output stream for logging
+
+E.g. stdiostreams.cpp
+
+#include <iostream>
+
+int main(void) {
+
+	char buff[512];
+
+	std::cout << "Hello World !" << std::endl;
+
+	std::cout << "Input a word: ";
+	std::cin >> buf:
+	std::cout << "You entered: [" << buff << "]" << std::endl;
+
+	return 0;
+}
+<< allows us to redirect the flow to the standard output, in this e.g. the data flow we are going to redirect to is the "Hello World !" string
+Then redirect again something to the standard output, its a new object of the standard namespace endl corresponding the carriage return.   
+So first line means in the standard output i want to inject the Hello World ! output string followed by the carriage return.
+Then do the same with the string input a word without a carriage return. Then do cin >> to allow me to fetch data in the standard input and then redirect data into a variable called buff
+which is a 512 character array. And then display again whatever was entered using cout and then end with the carraige return 
+
+cplusplus.com is a great resource
+we are using c++98 not c++11
+
+
+CLASS AND INSTANCES:
+use .hpp extension
+declaing a class in cpp
+use class keyword followed by the class name
+then curly braces and then end the braces with a semi colon
+public keyword
+
+		Sample( void );
+		~Sample( void );
+
+This declares a constructor and a deconstructor for my class. Name of the class for the constructor and name of the class followed by ~ for the deconstruction.
+
+Accessing the class Sample:
+Sample::Sample( void ) {
+}
+constructors and deconstructors of C++ classes do not have a return type. They are producers so like a return void.
+this e.g. uses Sample.class.hpp, sample.class.cpp and main1.cpp
+in main1.cpp
+sample instance; this is a variable named instance of the sample class
+the class is the static part
+the instance variable is the instance of the sample class
+the class isthe static part it is a model
+the instance is the dynamic part 
+
+in .hpp declare class and functions and aributes it contains
+and then in .cpp can define these functions present in our class and see they are member functions
+
+MEMBER ATTRIBUTES AND MEMBER FUNCTIONS:
+a member attribute is just a variable you have in your class and may use from an instance
+Meaning you will have a foo variable set up and different in every instance of your class.
+- we can declare directly a function in our class
+the implementation of this class as well as its definition will work the same way as the construct and deconstructor, but this time we will have a return value infront.
+
+In fact the bar function in the e.g.3 accepts a parameter and not void
+by default c++ will always pass automatically and in a transparent way a parameter that will always be first a special pointer on the current instance
+
+THIS:
+in .cpp
+Sample::Sample( void ) {
+
+	std::cout << "Constructor called" << std::endl;
+
+	this->foo = 42;
+	std::cout << "this->foo: " << this->foo << std::endl;
+
+	this->bar();
+
+	return;
+}
+
+this is used here, a pointer on the current instance.
+To assign the foo variable the current instance 42 you do this->foo = 42; because it is a pointer use this ->
+like structs in c
+then output the content of this variable
+
+INITIALIZATION LIST:
+Sample2::Sample2( char p1, int p2, float p3 ) : a1(p1), a2(p2), a3(p3) {
+a1 attribute here is declared in the class as a1 attibute from the value of the p1 parameter
+example class1 is not good, class2 is way better practice in dir e.g5
+
+so basically this:
+
+Sample1::Sample1( char p1, int p2, float p3 ) {
+
+	std::cout << "Constructor called" << std::endl;
+
+    this->a1 = p1;
+    std::cout << " this->a1 = " << this->a1 << std::endl;
+
+    this->a2 = p2;
+    std::cout << " this->a2 = " << this->a2 << std::endl;
+
+    this->a3 = p3;
+    std::cout << " this->a3 = " << this->a3 << std::endl;
+	return;
+}
+is the same as the below. But the below is much better practice
+
+Sample2::Sample2( char p1, int p2, float p3 ) : a1(p1), a2(p2), a3(p3) {
+
+	std::cout << "Constructor called" << std::endl;
+    std::cout << " this->a1 = " << this->a1 << std::endl;
+    std::cout << " this->a2 = " << this->a2 << std::endl;
+    std::cout << " this->a3 = " << this->a3 << std::endl;
+	return;
+}
+
+CONST:
+Const is good practice, use it as much as possible
+const in c++ is the ability to make a variable constant but also there is more ways to use it.
+check e.g. 6
+float const in my class which is then used in the constructor 
+so could do as in e.g. 
+float const pi
+in .hpp and in .cpp 
+Sample::Sample( float const f ) : pi( f ), dq(42)
+here I am initializaing my pi attribute to the f value 
+Also initializing qd attibute to 42
+in a const function you cannot change variables
+use const loads.
+
+VISIBILITY:
+public and private keyword
+public and pruivate allows us to control the encapculation of my class
+meaning the attributes and the member functions that will only be visible from inside the class or from the outside.
+
+When you define public functions or attributes it will be possible to access them from both inside and outside the class 
+But private attributes or functions they are only accessible from the inside of the class, perfectly invisible and 
+inaccessible from outside the class. meaning if you try and do so the code wont compile
+
+
+CLASS VS STRUCT:
+Structs and classes work exactly the same way in c++ 
+just replace the word class with the struct
+The scope of a structure is public as default and the scope of the class is private my default.
+Tend to use classes where things are priavte as default, everything you can do with structs in c you can do with classes in C++
+but you have better control over its attributes and can add member functions a constructor, destructure etc.
+
+ACCESSORS C++:
+To avoid mess in class we can offer proxy functions, they will be the interface between user and your private attributes to be sure the values are always correct.
+using prefixed by get and set
+e.g.8
+class Sample {
+
+public:
+
+    Sample( void );
+    ~Sample( void );
+
+    int     getFoo( void ) const;
+    void    setFoo(int v );
+
+private:
+
+    int _foo;
+};
+
+so foo cannot be accessed directly my attibute.
+but do want a certain attribute in which my user can have a certain control.
+const added in getFoo cos can only access in read only mode and wont alter it
+
+COMPARISONS:
+== allows address comparisons
+e.g.9
+int    Sample::compare( Sample * other ) const {
+	if (this->_foo < other->getFoo() )
+		return -1;
+	else if ( this->_foo > other->getFoo() )
+		return 1;
+	return 0;
+}
+equality between instances please not wwhether it is physical or structural quality
+
+NON-MEMBER ATTRIBUTES AND NON-MEMBER FUNCTIONS:
+A member functiion or attrirbute was something present in the instance of our class so the class needs to be instantiated for us to use this attribute and this function.
+member attributes are different in every instance
+
+Variables and functions existing at the class level and not the instance level - this is non-member attributes and non-member functions
+To specify this behaviour in C++ you need the STATIC keyword.
+Cant use this parameter in a nonmember code
+int     Sample::_nbInst = 0; // to initialize a non-member static attribute
+
+POINTERS TO MEMBERS:
+pointers on members and pointers on member functions
+.* operator 
+
+initialization list v important and const 
