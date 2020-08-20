@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/19 16:36:31 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/20 16:11:32 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/20 16:24:40 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,13 @@ AMateria::~AMateria()
 
 std::string const & AMateria::getType() const
 {
+    std::cout << "Type is now: " << this->_type << std::endl;
     return this->_type;
 }
 
 unsigned int AMateria::getXP() const
 {
+    std::cout << "XP is now: " << this->_xp << std::endl;
     return this->_xp;
 }
 

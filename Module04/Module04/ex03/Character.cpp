@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/19 18:17:38 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/20 16:13:43 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/20 16:26:48 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,12 @@ std::string const & Character::getName() const
 void Character::equip(AMateria* m)
 {
     if (this->_count >= 4)
+    {
+         std::cout << "Not equiped" <<std::endl;
         return ;
-    this->_MyMateria[this->_count] = m->clone();
+    }this->_MyMateria[this->_count] = m->clone();
     this->_count = this->_count + 1;
+    std::cout << "Equiped" <<std::endl;
     return ;
 }
 

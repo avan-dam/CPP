@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/20 11:07:07 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/20 15:35:01 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/20 16:28:48 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class MateriaSource : public IMateriaSource
 {
     private:
         AMateria	**_MyMateria;
-		// AMateria	*_stored;
         int			_count;
     public:
         MateriaSource();

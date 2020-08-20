@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/20 11:10:33 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/20 16:12:40 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/20 16:28:54 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 MateriaSource::MateriaSource() 
 {
     this->_MyMateria = new AMateria*[4];
+    memset(this->_MyMateria, 0, 5);
     this->_count = 0;
     return ;
 }
