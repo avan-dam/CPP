@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/19 16:33:31 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/19 16:35:23 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/08/20 16:12:35 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
 #include "Ice.hpp"
-#include "cure.hpp"
+#include "Cure.hpp"
 #include "Character.hpp"
 #include "AMateria.hpp"
 

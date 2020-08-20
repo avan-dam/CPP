@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/19 16:27:45 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/19 18:45:05 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/08/20 16:08:51 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 #include <iostream>
 #include "ICharacter.hpp"
 
+class ICharacter;
+
 class AMateria
 {
 	protected:
-		std::string _name;
 		std::string _type;
 		unsigned int _xp;
 		AMateria();

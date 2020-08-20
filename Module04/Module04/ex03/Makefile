@@ -6,7 +6,7 @@
 #    By: avan-dam <avan-dam@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/08/19 16:15:55 by avan-dam      #+#    #+#                  #
-#    Updated: 2020/08/19 16:25:08 by avan-dam      ########   odam.nl          #
+#    Updated: 2020/08/20 15:42:12 by Amber         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,3 +27,5 @@ clean:
 	rm -f $(NAME)
 
 fclean: clean
+
+re: fclean all

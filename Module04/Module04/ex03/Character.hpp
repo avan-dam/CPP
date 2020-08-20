@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/19 18:12:19 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/19 18:34:34 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/08/20 15:03:09 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 # define CHARACTER_H
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 #include <iostream>
 
 class Character : public ICharacter
 {
     private:
-        AMateria	**_MyMateria;
+    	AMateria	**_MyMateria;
         std::string	_name;
 		int			_count;
 		Character();
     public:
-        ~Character() {}
+        ~Character();
 		Character(std::string name);
 		Character( const Character & src );
 		Character &    operator=(  const Character & rhs );
