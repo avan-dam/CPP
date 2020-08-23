@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/23 15:29:53 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/23 15:44:32 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/24 01:13:09 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -25,24 +27,23 @@ class Form
         int         _gradeexecute;
 		Form();
 	public:
-        // Grade to sign in 
-		// Form(std::string const &name, int gradesignin, int gradeexecute);
+		Form(std::string const &name, int gradesignin, int gradeexecute);
 		~Form();
 		Form( const Form & src );
         Form &    operator=(  const Form & rhs );
 	    const std::string		getName() const;
-	    const int				getGradeSignIn() const;
-	    const int				getGradeExecute() const;
-        const bool              getSiigned() const;
+	     int				getGradeSignIn() const;
+	     int				getGradeExecute() const;
+         bool              getSigned() const;
         void                    beSigned(Bureaucrat &B);
-	    class GradeTooHighException : public std::exception {
- 	    public:
-		    virtual const char* what() const throw();
-  	    } GradeTooHighException;
-  	    class GradeTooLowException : public std::exception {
- 	    public:
-		    virtual const char* what() const throw();
-  	    } GradeTooLowException;    
+        class GradeTooHighException : public std::exception {
+ 		public:
+			virtual const char* what() const throw();
+  		};
+  		class GradeTooLowException : public std::exception {
+ 		public:
+			virtual const char* what() const throw();
+  		};  
 };
 
 std::ostream &  operator<<(std::ostream & o, Form const & i );

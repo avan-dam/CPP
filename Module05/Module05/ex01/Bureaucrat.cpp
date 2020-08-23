@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/21 17:46:43 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/24 00:35:40 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/24 01:13:28 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat::Bureaucrat(std::string const &name, int grade)
 {
-    this->_grade = 0;
-    this->_name = "";
    try { 
     if (grade > 150) 
         { 
@@ -125,6 +123,16 @@ void		            Bureaucrat::decrementGrade()
     }
     this->_grade--;     
 }
+
+void			Bureaucrat::signForm(Form& F)
+{
+    if (F.getSigned() == true)
+    {
+        std::cout << "Bureaucrat called " << this->_name;
+        std::cout << "signs form " << F.getName() << std::endl;
+    }
+}
+
 
 std::ostream &              operator<<(std::ostream & o, Bureaucrat const & i )
 {
