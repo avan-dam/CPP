@@ -1,0 +1,137 @@
+NESTED CLASSES:
+
+class Cat
+{
+    public:
+    class Leg
+    {
+     //   ...
+    };
+};
+
+class God
+{
+    public:
+    class Leg
+    {
+
+    };
+};
+
+with the nested classes above can instantiate Cat or Cat::leg e.g.
+
+int main()
+{
+    Cat         somecat;
+    Cat::Leg    somecatsleg;
+}
+
+
+EXCEPTIONS:
+Way of handeling errors
+and reporting with a message
+
+#include <stdexcept>
+
+void test1()
+{
+    try
+    {
+        if (/* theres an error */)
+        {
+            throw std::exception();
+        }
+        else
+        {
+            //do soemthing else
+        }
+    }
+    catch (std::exception e)
+    {
+        //handle the error here
+    }
+}
+
+throw goes through the blocks until it finds a catch blocks
+can then call e.what() which is a method defined in std::exception
+it will return a message describing what happens
+supposed to handel that myself
+I have it 
+
+void    test2()
+{
+    //Do some stuff here
+    if (/* theres an error */)
+    {
+        throw std::exception();
+    }
+    else
+    {
+        //do some more stuff
+    }
+}
+
+void    test3()
+{
+    try
+    {
+        test2();
+    }
+    catch (std::exception& e)
+    {
+        //handle error
+    }
+}
+
+so test 3 gets its throw from test 2
+can also handle error by reference
+(std::exception& e)
+in practice can see the catch as a function which has the exception as a parameter
+and it will initialize this parameter from the exception we will catch
+
+void    test4()
+{
+    class PEBKACException : public std::exception
+    {
+        public:
+            virtual const char* what() const throw()
+            {
+                return ("Problem exists between keyboard and chair");
+            }
+    };
+    try
+    {
+        test3();
+    }
+    catch (PEBKACException& e)
+    {
+        //handle the fact that the user is an idiot
+    }
+    catch (std::exception& e)
+    {
+        //handle other exceptions that are like std::exception
+    }
+}
+
+            virtual const char* what() const throw()
+- the throw is specifying throw, thats how it is called placed at the end of a function
+this means that this function might throw something, throw followed by nothing means that
+it doesnt throw anything, I could also throw soemthing e.g. 
+            virtual const char* what() const throw(ponIsNotHereException)
+this would mean that it could throw this exception
+it is just a way to specify which exceptions a method could throw
+it is very clean way to proceed 
+strongly recomend using it
+
+use exceptions exceptionally
+
+throwing exceptions are relavtively resource heavy
+
+so if expect something to fail alot use a return value indicating it
+e.g. have a boulien for ok or not ok
+or in the case it doesnt return an error often go ahead and use an exception
+
+e.g. new when there is no memory left it will throw an exception - no memory left
+
+o stream can throw exception
+

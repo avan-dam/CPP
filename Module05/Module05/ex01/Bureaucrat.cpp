@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/21 17:46:43 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/23 15:36:47 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/23 15:35:14 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,16 @@ Bureaucrat::~Bureaucrat()
 {
     std::cout <<"destructed " << this->_name << " with grade " << this->_grade << std::endl;
     return ;
+}
+
+Bureaucrat &    Bureaucrat::operator=( Bureaucrat const & rhs )
+{
+    if ( this != &rhs )
+    {
+        this->_name = rhs._name;
+        this->_grade = rhs._grade;
+    }
+    return *this;
 }
 
 Bureaucrat::Bureaucrat(std::string const &name, int grade)
@@ -62,22 +72,12 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade)
     return ;
 }
 
-Bureaucrat &    Bureaucrat::operator=( Bureaucrat const & rhs )
-{
-    if ( this != &rhs )
-    {
-        this->_name = rhs._name;
-        this->_grade = rhs._grade;
-    }
-    return *this;
-}
-
-const char*             Bureaucrat::GradeTooHighException::what() const throw()
+const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
     return "Grade Too High Exception ";
 }
 
-const char*            Bureaucrat::GradeTooLowException::what() const throw()
+const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "Grade Too Low Exception";
 }
@@ -87,12 +87,12 @@ const std::string		Bureaucrat::getName() const
     return (this->_name);
 }
 
-int	                    Bureaucrat::getGrade() const
+int	        Bureaucrat::getGrade() const
 {
     return (this->_grade);
 }
 
-void		            Bureaucrat::incrementGrade()
+void		Bureaucrat::incrementGrade()
 {
     try
     {
@@ -109,7 +109,7 @@ void		            Bureaucrat::incrementGrade()
     this->_grade++;  
 }
 
-void		            Bureaucrat::decrementGrade()
+void		Bureaucrat::decrementGrade()
 {
         try
     {
@@ -126,7 +126,7 @@ void		            Bureaucrat::decrementGrade()
     this->_grade--;     
 }
 
-std::ostream &              operator<<(std::ostream & o, Bureaucrat const & i )
+std::ostream &  operator<<(std::ostream & o, Bureaucrat const & i )
 {
     o << i.getName() << ", Bureaucrat grade " << i.getGrade() << std::endl;
     return o;
