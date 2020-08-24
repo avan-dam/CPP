@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/21 18:06:22 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/23 15:30:49 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/24 16:38:07 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,33 @@
 
 int main(void)
 {
-    Bureaucrat A("A", 150);
-    std::cout << A << std::endl;
-    A.decrementGrade();
-    std::cout << A << std::endl;
-    A.incrementGrade();
-    std::cout << A << std::endl;
-    A.incrementGrade();
-    std::cout << A << std::endl;
-    Bureaucrat B("B", 1);
+    try {
+        Form A("this ", 0, 8);
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;    
+    } 
+    Bureaucrat B("My B", 7);
     std::cout << B << std::endl;
-    B.incrementGrade();
-    std::cout << B << std::endl;
-    B.decrementGrade();
-    std::cout << B << std::endl;
-    B.decrementGrade();
-    std::cout << B << std::endl;
+    Form C("C", 8, 2);
+    std::cout << C << std::endl;
+    try {
+    B.signForm(C);
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;    
+    } 
+    std::cout << C << std::endl;
+    try {
+    B.signForm(C);
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;    
+    } 
+        std::cout << C << std::endl;
+
     return (0);
 }

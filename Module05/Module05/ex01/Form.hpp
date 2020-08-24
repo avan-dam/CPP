@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/23 15:29:53 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/24 01:13:09 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/24 15:54:19 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,19 @@ class Form
 		~Form();
 		Form( const Form & src );
         Form &    operator=(  const Form & rhs );
+
 	    const std::string		getName() const;
-	     int				getGradeSignIn() const;
-	     int				getGradeExecute() const;
-         bool              getSigned() const;
+	    int				    	getGradeSignIn() const;
+	    int				    	getGradeExecute() const;
+        bool                   	getSigned() const;
         void                    beSigned(Bureaucrat &B);
-        class GradeTooHighException : public std::exception {
+        
+		class GradeTooHighException : public std::exception {
  		public:
 			virtual const char* what() const throw();
   		};
-  		class GradeTooLowException : public std::exception {
+  		
+		class GradeTooLowException : public std::exception {
  		public:
 			virtual const char* what() const throw();
   		};  

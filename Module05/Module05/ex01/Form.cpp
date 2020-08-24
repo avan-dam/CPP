@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/23 15:30:35 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/24 01:14:23 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/24 16:38:38 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,35 +17,14 @@ Form::Form()
     return ;
 }
 
-Form::Form(std::string const &name, int gradesignin, int gradeexecute)
+
+Form::Form(std::string const &name, int gradesignin, int gradeexecute) : _name(name), _gradesignin(gradesignin), _gradeexecute(gradeexecute)
 {
-   try { 
-    if (gradesignin > 150) 
-        { 
+    if (gradesignin > 150 || gradeexecute > 150) 
             throw GradeTooLowException(); 
-        }
-    if (gradesignin < 1) 
-        { 
+    if (gradesignin < 1 || gradeexecute < 1) 
             throw GradeTooHighException(); 
-        } 
-    } 
-    catch(GradeTooLowException& e)
-    { 
-        std::cerr << e.what() << '\n';
-        std::cout << "Failed to make grade sign in as " << gradesignin << std::endl;
-        return;
-    } 
-    catch(GradeTooHighException& e)
-    {
-        std::cerr << e.what() << '\n';
-        std::cout << "Failed to make grade sign in as  " << gradesignin << std::endl;
-        return ;
-    }
-    this->_name = name;
-    this->_gradesignin = gradesignin;
-    this->_gradeexecute = gradeexecute;
     this->_signed = false;
-    std::cout << "Form called " << this->_name <<  " with signin grade " << this->_gradesignin << " and grade to execute " <<this->_gradeexecute<< " made " << std::endl;
     return ;
 }
 
@@ -104,17 +83,19 @@ const char*            Form::GradeTooLowException::what() const throw()
 
 void                    Form::beSigned(Bureaucrat &B)
 {
-    if (B.getGrade() < this->_gradesignin)
-    { 
+    if (B.getGrade() > this->_gradesignin)
         throw GradeTooLowException(); 
-    }
     this->_signed = true;
 }
 
 std::ostream &  operator<<(std::ostream & o, Form const & i )
 {
-    o << i.getName() << ", Form grade sign in " << i.getGradeSignIn() 
-    << " grade execute " << i.getGradeExecute() << " it is " << 
-    i.getSigned() << " that the contract is signed" << std::endl;
+    o << "Form called "<< i.getName() << " with sign in grade " << i.getGradeSignIn();
+    o << " and execute grade " << i.getGradeExecute() << " the contract ";
+    if (i.getSigned() == 0)
+        o << "IS NOT";
+    else
+        o << "IS";
+    o << " signed";
     return o;
 }
