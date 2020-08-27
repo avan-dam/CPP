@@ -6,13 +6,13 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/23 15:30:35 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/24 16:38:38 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/25 03:37:17 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form()
+Form::Form() : _gradesignin(1), _gradeexecute(1)
 {
     return ;
 }
@@ -33,20 +33,22 @@ Form::~Form()
     return ;
 }
 
-Form::Form( Form const & src )
+Form::Form( Form const & rhs ): _name(rhs.getName()), _gradesignin(rhs.getGradeSignIn()), _gradeexecute(rhs.getGradeExecute())
 {
-    *this = src;
+    if (rhs.getGradeSignIn() > 150 || rhs.getGradeExecute() > 150) 
+        throw GradeTooLowException(); 
+    if (rhs.getGradeSignIn() < 1 || rhs.getGradeExecute() < 1) 
+        throw GradeTooHighException(); 
+    this->_signed = false;
+    *this = rhs;
     return ;
 }
 
 Form &    Form::operator=(  const Form & rhs )
 {
     if ( this != &rhs )
-    {
-        this->_name = rhs._name;
-        this->_gradesignin = rhs._gradesignin;
-        this->_gradeexecute = rhs._gradeexecute;
-        this->_signed = rhs._signed;
+    { 
+        this->_signed = rhs.getSigned();
     }
     return *this;
 }

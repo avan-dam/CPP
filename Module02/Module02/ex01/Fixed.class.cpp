@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/05 17:06:42 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/17 12:42:21 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/27 14:26:58 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,18 @@ int Fixed::toInt( void ) const {
 
 std::ostream &  operator<<(std::ostream & o, Fixed const & i )
 {
-    o << i.toFloat();
+    double power = 2;
+    int k = 0;
+    while (k < i.getfractbits() - 1)
+    {
+        power = power * 2;
+        k++;
+    }
+    if (std::fmod(i.getRawBits(),power))
+    {
+        i.toFloat();
+        return o;
+    }
+    o << "" << i.toInt();
     return o;
 }
-
-const int     Fixed::_fractbits = 8;

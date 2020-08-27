@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 13:27:31 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/11 15:17:00 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/20 10:46:43 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,3 @@ void	FragTrap::vaulthunter_dot_exe(std::string const & target)
             std::cout << "LOL double jokes you had no energy anyway" << this->_energypoints;
     }
 }
-

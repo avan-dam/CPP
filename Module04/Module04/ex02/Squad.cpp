@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/17 20:03:06 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/19 18:41:33 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/08/20 10:53:36 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,13 @@ Squad::Squad( const Squad & src )
 
 Squad &    Squad::operator=(  const Squad & rhs )
 {
-    std::cout <<"equal" <<std::endl;
-    std::cout << "this " << this->_count << std::endl;
-    if (this != &rhs)
-    {
-        for (int i = 0; i <= this->_count; i++)
-            delete this->_marine[i];
-        delete [] this->_marine;
-        this->_marine = new ISpaceMarine*[100];
-        for (int i = 0; i < this->_count; i++)
-            this->_marine[i] = rhs._marine[i]->clone();
-    }
+    this->_count = rhs._count;
+    for (int i = 0; i <= this->_count; i++)
+        delete this->_marine[i];
+    delete [] this->_marine;
+    this->_marine = new ISpaceMarine*[100];
+    for (int i = 0; i < this->_count; i++)
+        this->_marine[i] = rhs._marine[i]->clone();
     return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/21 18:06:22 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/24 00:32:36 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/24 16:04:10 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,49 @@
 
 int main(void)
 {
-    Bureaucrat C("C", 160);
-    Bureaucrat D("D", 0);
-
-    // Bureaucrat A("A", 150);
-    // std::cout << A << std::endl;
-    // A.decrementGrade();
-    // std::cout << A << std::endl;
-    // A.incrementGrade();
-    // std::cout << A << std::endl;
-    // A.incrementGrade();
-    // std::cout << A << std::endl;
-    // Bureaucrat B("B", 1);
-    // std::cout << B << std::endl;
-    // B.incrementGrade();
-    // std::cout << B << std::endl;
-    // B.decrementGrade();
-    // std::cout << B << std::endl;
-    // B.decrementGrade();
-    // std::cout << B << std::endl;
+    try {
+            Bureaucrat A("A", 151);
+            std::cout << A << std::endl;
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }   
+    try {
+            Bureaucrat B("B", 0);
+            std::cout << B << std::endl;
+    }
+    catch (std::exception& e)
+    {        
+        std::cerr << e.what() << std::endl;
+    }    
+    try 
+    {
+        Bureaucrat C("C", 5);
+        std::cout << C << std::endl;
+    }
+    catch (std::exception& e)
+    {   
+        std::cerr << e.what() << std::endl;
+    }   
+    Bureaucrat D("D", 1);
+    std::cout << D << std::endl;
+    try {
+        D.decrementGrade();
+        std::cout << D << std::endl;
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    std::cout << D << std::endl;
+    try {
+        D.incrementGrade();
+        std::cout << D << std::endl;
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;    
+    }    
     return (0);
 }

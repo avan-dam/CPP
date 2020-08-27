@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/23 15:29:53 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/24 15:54:19 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/25 03:37:09 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Form
     private:
         std::string _name;
         bool        _signed;
-        int         _gradesignin;
-        int         _gradeexecute;
+        const int	_gradesignin;
+        const int	_gradeexecute;
 		Form();
 	public:
 		Form(std::string const &name, int gradesignin, int gradeexecute);
