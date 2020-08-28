@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/07 17:28:13 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/20 10:42:15 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/28 11:23:11 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,21 @@ FragTrap::FragTrap(std::string name)
     this->_maxenergypoints = 100;
     this->_level = 1;
     this->_name = name;
+    this->_meleeattackdamage = 30;
+    this->_rangedattackdamage = 20;
+    this->_armordamagereduction = 5;
+    std::cout << "Hocus pocus! " << this->_name << " now exists" << std::endl;
+    return ;
+}
+
+FragTrap::FragTrap()
+{
+    this->_hitpoints = 100;
+    this->_maxhitpoints = 100;
+    this->_energypoints = 100;
+    this->_maxenergypoints = 100;
+    this->_level = 1;
+    this->_name = "MEEE";
     this->_meleeattackdamage = 30;
     this->_rangedattackdamage = 20;
     this->_armordamagereduction = 5;
