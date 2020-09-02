@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 13:27:31 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/20 10:44:04 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 13:17:58 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,21 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
     std::cout << this->_maxenergypoints << " on level " << this->_level << " and melee attack damage of " << this->_meleeattackdamage;
     std::cout << " ranged attack damage of " << this->_rangedattackdamage << "and armor damage reduction of ";
     std::cout << this->_armordamagereduction << std::endl;
+}
+
+FragTrap::FragTrap()
+{
+    this->_hitpoints = 100;
+    this->_maxhitpoints = 100;
+    this->_energypoints = 100;
+    this->_maxenergypoints = 100;
+    this->_level = 1;
+    this->_name = "MEEE";
+    this->_meleeattackdamage = 30;
+    this->_rangedattackdamage = 20;
+    this->_armordamagereduction = 5;
+    std::cout << "Hocus pocus! " << this->_name << " now exists" << std::endl;
+    return ;
 }
 
 FragTrap::~FragTrap()

@@ -6,7 +6,7 @@
 #    By: avan-dam <avan-dam@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/08/19 16:15:48 by avan-dam      #+#    #+#                  #
-#    Updated: 2020/08/20 16:17:09 by Amber         ########   odam.nl          #
+#    Updated: 2020/09/02 13:17:32 by Amber         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SuperTrap.cpp
 
 all: $(NAME)
 
-$(NAME):
+$(NAME) :$(FILES)
 	$(CXX) $(FILES) $(FLAGS) -o $(NAME)
 
 clean:

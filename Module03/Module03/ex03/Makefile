@@ -6,7 +6,7 @@
 #    By: avan-dam <avan-dam@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/08/19 16:15:48 by avan-dam      #+#    #+#                  #
-#    Updated: 2020/08/20 16:17:04 by Amber         ########   odam.nl          #
+#    Updated: 2020/09/02 13:17:27 by Amber         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ FILES = main.cpp FragTrap.cpp ScavTrap.cpp ClapTrap.cpp NinjaTrap.cpp
 
 all: $(NAME)
 
-$(NAME):
+$(NAME) :$(FILES)
 	$(CXX) $(FILES) $(FLAGS) -o $(NAME)
 
 clean:

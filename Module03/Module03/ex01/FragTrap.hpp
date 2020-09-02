@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/07 17:05:29 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/28 11:23:40 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 13:18:44 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class FragTrap {
         FragTrap(std::string name);
         FragTrap( FragTrap const & src );
         ~FragTrap();
-        //  Fragtrap
+        FragTrap();
         FragTrap &  operator=( FragTrap const & rhs );
         void		rangedAttack(std::string const & target);
         void		meleeAttack(std::string const & target);
