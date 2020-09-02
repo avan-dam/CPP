@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 13:27:44 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/20 10:44:16 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 13:55:57 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 class ScavTrap : public ClapTrap {
     public:
         ScavTrap(std::string name);
+        ScavTrap();
         ~ScavTrap();
         void		challengeNewcomer();
 };

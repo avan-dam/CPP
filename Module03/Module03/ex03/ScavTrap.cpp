@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 13:27:41 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/10 14:40:42 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 14:08:55 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,23 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     std::cout << " ranged attack damage of " << this->_rangedattackdamage << "and armor damage reduction of ";
     std::cout << this->_armordamagereduction << std::endl;
 }
+
+ScavTrap::ScavTrap() : ClapTrap("queen")
+{
+    this->_hitpoints = 100;
+    this->_maxhitpoints = 100;
+    this->_energypoints = 50;
+    this->_maxenergypoints = 50;
+    this->_meleeattackdamage = 20;
+    this->_rangedattackdamage = 15;
+    this->_armordamagereduction = 3;
+    std::cout << "I am a SCAVTRAP called " << this->_name << "with" << _energypoints << " energypoints and";
+    std::cout << " max energy of " << this->_maxenergypoints << "and hit points of " << this->_hitpoints << " and max hit points of ";
+    std::cout << this->_maxenergypoints << " on level " << this->_level << " and melee attack damage of " << this->_meleeattackdamage;
+    std::cout << " ranged attack damage of " << this->_rangedattackdamage << "and armor damage reduction of ";
+    std::cout << this->_armordamagereduction << std::endl;
+}
+
 
 ScavTrap::~ScavTrap()
 {

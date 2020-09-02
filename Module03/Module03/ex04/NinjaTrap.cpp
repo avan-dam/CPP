@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 13:27:31 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/20 10:46:31 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 13:59:35 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,20 @@ NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name)
     std::cout << this->_armordamagereduction << std::endl;
 }
 
-NinjaTrap::NinjaTrap()
+NinjaTrap::NinjaTrap() : ClapTrap("Queen")
 {
-    std::cout << "NinjaTrap Constructor with no parameters called" << std::endl;
-    return ;
+    this->_hitpoints = 60;
+    this->_maxhitpoints = 60;
+    this->_energypoints = 120;
+    this->_maxenergypoints = 120;
+    this->_meleeattackdamage = 60;
+    this->_rangedattackdamage = 5;
+    this->_armordamagereduction = 0;
+    std::cout << "I am a NINJATRAP called " << this->_name << "with" << _energypoints << " energypoints and";
+    std::cout << " max energy of " << this->_maxenergypoints << "and hit points of " << this->_hitpoints << " and max hit points of ";
+    std::cout << this->_maxenergypoints << " on level " << this->_level << " and melee attack damage of " << this->_meleeattackdamage;
+    std::cout << " ranged attack damage of " << this->_rangedattackdamage << "and armor damage reduction of ";
+    std::cout << this->_armordamagereduction << std::endl;
 }
 
 NinjaTrap::~NinjaTrap()

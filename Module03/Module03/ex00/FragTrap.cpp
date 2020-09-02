@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/07 17:28:13 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/28 11:23:11 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 14:06:18 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ FragTrap::FragTrap()
     this->_energypoints = 100;
     this->_maxenergypoints = 100;
     this->_level = 1;
-    this->_name = "MEEE";
+    this->_name = "Queen";
     this->_meleeattackdamage = 30;
     this->_rangedattackdamage = 20;
     this->_armordamagereduction = 5;

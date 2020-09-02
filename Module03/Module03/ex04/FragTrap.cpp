@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 13:27:31 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/02 13:20:47 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 14:04:01 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
     std::cout << this->_armordamagereduction << std::endl;
 }
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() : ClapTrap("Queen")
 {
-    this->_hitpoints = 100;
-    this->_maxhitpoints = 100;
     this->_energypoints = 100;
     this->_maxenergypoints = 100;
-    this->_level = 1;
-    this->_name = "MEEE";
     this->_meleeattackdamage = 30;
     this->_rangedattackdamage = 20;
     this->_armordamagereduction = 5;
-    std::cout << "Hocus pocus! " << this->_name << " now exists" << std::endl;
+    std::cout << "I am a FRAGTRAP called " << this->_name << "with" << _energypoints << " energypoints and";
+    std::cout << " max energy of " << this->_maxenergypoints << "and hit points of " << this->_hitpoints << " and max hit points of ";
+    std::cout << this->_maxenergypoints << " on level " << this->_level << " and melee attack damage of " << this->_meleeattackdamage;
+    std::cout << " ranged attack damage of " << this->_rangedattackdamage << "and armor damage reduction of ";
+    std::cout << this->_armordamagereduction << std::endl;
     return ;
 }
 

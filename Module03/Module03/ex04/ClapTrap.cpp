@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/07 17:28:13 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/12 14:21:20 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 14:09:16 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap()
 {
-    std::cout << "ClapTrap Constructor with no parameters called" << std::endl;
-    return;
+
+    this->_level = 1;
+    this->_name = "Queen";
+    std::cout << "Hocus pocus! " << this->_name << " now exists" << std::endl;
+    return ;
 }
 
 ClapTrap::ClapTrap( ClapTrap const & src )

@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/11 12:51:43 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/20 10:46:18 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 13:59:54 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,20 @@
 
 SuperTrap::SuperTrap()
 {
-    std::cout << "SuperTrap Constructor with no parameters called" << std::endl;
+    this->_name = "Queen";
+    this->_level = 1;
+    this->_hitpoints = 100;
+    this->_maxhitpoints = 100;
+    this->_energypoints = 120;
+    this->_maxenergypoints = 120;
+    this->_meleeattackdamage = 60;
+    this->_rangedattackdamage = 20;
+    this->_armordamagereduction = 5;
+    std::cout << "I am a SUPERTRAP called " << this->_name << " with " << _energypoints << " energypoints and";
+    std::cout << " max energy of " << this->_maxenergypoints << "and hit points of " << this->_hitpoints << " and max hit points of ";
+    std::cout << this->_maxhitpoints << " on level " << this->_level << " and melee attack damage of " << this->_meleeattackdamage;
+    std::cout << " ranged attack damage of " << this->_rangedattackdamage << "and armor damage reduction of ";
+    std::cout << this->_armordamagereduction << std::endl;
     return ;
 }
 
