@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 13:27:39 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/02 13:19:00 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 14:26:02 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class FragTrap : public ClapTrap
         FragTrap(std::string name);
         ~FragTrap();
         FragTrap();
+        FragTrap( FragTrap const & src );
+        FragTrap &  operator=( FragTrap const & rhs );
         void		vaulthunter_dot_exe(std::string const & target);
 };
 

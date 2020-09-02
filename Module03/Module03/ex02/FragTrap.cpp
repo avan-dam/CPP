@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 13:27:31 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/02 14:02:50 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 14:26:37 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,31 @@ FragTrap::FragTrap() : ClapTrap("Queen")
     std::cout << " ranged attack damage of " << this->_rangedattackdamage << "and armor damage reduction of ";
     std::cout << this->_armordamagereduction << std::endl;
     return ;
+}
+
+FragTrap::FragTrap( FragTrap const & src )
+{
+    std::cout << "Copy constructor called" << std::endl;
+    *this = src;
+    return;
+}
+
+FragTrap &    FragTrap::operator=( FragTrap const & rhs )
+{
+    std::cout << "Assignment operator called" << std::endl;
+    if ( this != &rhs )
+    {
+        this->_name = rhs._name;
+        this->_hitpoints = rhs._hitpoints;
+        this->_maxhitpoints = rhs._maxhitpoints;
+        this->_energypoints = rhs._energypoints;
+        this->_maxenergypoints = rhs._maxenergypoints;
+        this->_level = rhs._level;
+        this->_meleeattackdamage = rhs._meleeattackdamage;
+        this->_rangedattackdamage = rhs._rangedattackdamage;
+        this->_armordamagereduction = rhs._armordamagereduction;
+    }
+    return *this;
 }
 
 FragTrap::~FragTrap()
