@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 13:27:31 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/02 13:58:55 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 14:44:38 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,31 @@ NinjaTrap::~NinjaTrap()
 {
     std::cout <<"Away with thee! Me NINJATRAP called " << this->_name << " died" << std::endl;
     return ;
+}
+
+NinjaTrap::NinjaTrap( NinjaTrap const & src )
+{
+    std::cout << "Copy constructor called" << std::endl;
+    *this = src;
+    return;
+}
+
+NinjaTrap &    NinjaTrap::operator=( NinjaTrap const & rhs )
+{
+    std::cout << "Assignment operator called" << std::endl;
+    if ( this != &rhs )
+    {
+        this->_name = rhs._name;
+        this->_hitpoints = rhs._hitpoints;
+        this->_maxhitpoints = rhs._maxhitpoints;
+        this->_energypoints = rhs._energypoints;
+        this->_maxenergypoints = rhs._maxenergypoints;
+        this->_level = rhs._level;
+        this->_meleeattackdamage = rhs._meleeattackdamage;
+        this->_rangedattackdamage = rhs._rangedattackdamage;
+        this->_armordamagereduction = rhs._armordamagereduction;
+    }
+    return *this;
 }
 
 void	NinjaTrap::ninjaShoebox(const ScavTrap& target)

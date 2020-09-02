@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 13:27:31 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/02 14:03:50 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 14:40:03 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,31 @@ FragTrap::~FragTrap()
 {
     std::cout <<"Away with thee! Me FRAGTRAP called " << this->_name << " died" << std::endl;
     return ;
+}
+
+FragTrap::FragTrap( FragTrap const & src )
+{
+    std::cout << "Copy constructor called" << std::endl;
+    *this = src;
+    return;
+}
+
+FragTrap &    FragTrap::operator=( FragTrap const & rhs )
+{
+    std::cout << "Assignment operator called" << std::endl;
+    if ( this != &rhs )
+    {
+        this->_name = rhs._name;
+        this->_hitpoints = rhs._hitpoints;
+        this->_maxhitpoints = rhs._maxhitpoints;
+        this->_energypoints = rhs._energypoints;
+        this->_maxenergypoints = rhs._maxenergypoints;
+        this->_level = rhs._level;
+        this->_meleeattackdamage = rhs._meleeattackdamage;
+        this->_rangedattackdamage = rhs._rangedattackdamage;
+        this->_armordamagereduction = rhs._armordamagereduction;
+    }
+    return *this;
 }
 
 void	FragTrap::vaulthunter_dot_exe(std::string const & target)
@@ -110,17 +135,5 @@ void	FragTrap::vaulthunter_dot_exe(std::string const & target)
             std::cout << "LOL double jokes you had no hit anyway" << this->_hitpoints;
     }
 
-    }
-    if (nb == 4)
-    {
-        std::cout << "HAHA LOL JK 2 less energy" << std::endl;
-        if (this->_energypoints > 1)
-        {
-            std::cout << "Total energy points went from "  << this->_energypoints;
-            this->_energypoints = this->_energypoints - 2;
-            std::cout << " to " << this->_energypoints << std::endl;
-        }
-        else
-            std::cout << "LOL double jokes you had no energy anyway" << this->_energypoints;
     }
 }

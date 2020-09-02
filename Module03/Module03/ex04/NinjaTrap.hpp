@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 13:27:39 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/20 10:46:28 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 14:44:57 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class NinjaTrap : public virtual ClapTrap
         NinjaTrap();
         NinjaTrap(std::string name);
         ~NinjaTrap();
+        NinjaTrap( NinjaTrap const & src );
+        NinjaTrap &  operator=( NinjaTrap const & rhs );
         void		ninjaShoebox(const ScavTrap& target);
         void		ninjaShoebox(const FragTrap& target);
         void		ninjaShoebox(const NinjaTrap& target);
