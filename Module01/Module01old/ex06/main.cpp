@@ -5,16 +5,30 @@
 /*                                                     +:+                    */
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/29 14:10:26 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/02 10:10:25 by Amber         ########   odam.nl         */
+/*   Created: 2020/08/03 12:31:25 by avan-dam      #+#    #+#                 */
+/*   Updated: 2020/08/27 11:13:58 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-int main(void)
+int main()
 {
-    ponyOnTheHeap();
-    ponyOnTheStack();
-    return (0);
+    {
+        Weapon club = Weapon("crude spiked club");
+    	HumanA bob("Bob", club);
+    	bob.attack();
+    	club.setType("some other type of club");
+        bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
 }

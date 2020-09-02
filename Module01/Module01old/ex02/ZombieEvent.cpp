@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 16:53:20 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/02 10:30:48 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/26 18:38:34 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ Zombie*    ZombieEvent::randomChump(std::string type)
         name = "rosie";
     if (nb == 7)
         name = "Jacob";
+    if (nb == 8)
+        name = "Alejandro";
     Zombie* RandomZomb = new Zombie(name, type);
     RandomZomb->announce();
     return(RandomZomb);

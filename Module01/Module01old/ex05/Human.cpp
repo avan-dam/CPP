@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Human.cpp                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
+/*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/29 14:10:26 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/02 10:10:25 by Amber         ########   odam.nl         */
+/*   Created: 2020/08/02 21:35:16 by Amber         #+#    #+#                 */
+/*   Updated: 2020/08/27 11:10:19 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include "Human.hpp"
+#include "Brain.hpp"
 
-int main(void)
+const Brain& Human::getBrain() const
 {
-    ponyOnTheHeap();
-    ponyOnTheStack();
-    return (0);
+    return (this->_Humany);
+}
+
+const Brain* Human::identify() const
+{
+    return (_Humany.identify());
 }

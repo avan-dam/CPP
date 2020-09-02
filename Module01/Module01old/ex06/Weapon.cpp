@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Weapon.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/29 14:10:26 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/02 10:10:25 by Amber         ########   odam.nl         */
+/*   Created: 2020/08/03 12:31:28 by avan-dam      #+#    #+#                 */
+/*   Updated: 2020/08/27 12:08:46 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include "Weapon.hpp"
 
-int main(void)
+const std::string&   Weapon::getType() const
 {
-    ponyOnTheHeap();
-    ponyOnTheStack();
-    return (0);
+    return (this->_type);
+}
+
+void				Weapon::setType(std::string weapontype)
+{
+    this->_type = weapontype;
+}
+
+Weapon::Weapon(std::string weapontype)
+{
+    setType(weapontype);
+}
+
+Weapon::~Weapon( void )
+{
+}
+
+Weapon::Weapon( void )
+{
 }

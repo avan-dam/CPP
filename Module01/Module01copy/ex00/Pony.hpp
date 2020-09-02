@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/29 14:10:33 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/07/30 15:58:17 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/02 10:09:22 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string.h>
 #include <iostream>
+#include <new>
 
 void    ponyOnTheHeap();
 void    ponyOnTheStack();

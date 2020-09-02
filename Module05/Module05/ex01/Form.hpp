@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/23 15:29:53 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/25 03:37:09 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 09:51:51 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Bureaucrat;
 class Form
 {
     private:
-        std::string _name;
+        const std::string _name;
         bool        _signed;
         const int	_gradesignin;
         const int	_gradeexecute;

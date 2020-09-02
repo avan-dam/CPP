@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 16:48:25 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/02 10:27:31 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/27 09:57:41 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void Zombie::setmezombie(std::string name, std::string type)
     this->_name = name;
     this->_type = type;
 }
-
 Zombie::Zombie()
 {
     return ;

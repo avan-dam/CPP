@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   HumanB.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/29 14:10:26 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/02 10:10:25 by Amber         ########   odam.nl         */
+/*   Created: 2020/08/03 12:31:36 by avan-dam      #+#    #+#                 */
+/*   Updated: 2020/08/27 12:09:59 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include "Weapon.hpp"
+#include "HumanB.hpp"
 
-int main(void)
+HumanB::HumanB(std::string name)
 {
-    ponyOnTheHeap();
-    ponyOnTheStack();
-    return (0);
+    this->_name = name;
+    this->_weapon = 0;
+}
+
+HumanB::~HumanB()
+{
+}
+
+void    HumanB::attack()
+{
+    std::cout << this->_name << " attacks with his " << this->_weapon->getType() << std::endl;
+}
+
+void    HumanB::setWeapon(Weapon &weaponB)
+{
+    this->_weapon = &weaponB;
 }

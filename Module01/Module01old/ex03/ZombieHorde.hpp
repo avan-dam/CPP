@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   ZombieHorde.hpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/29 14:10:26 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/02 10:10:25 by Amber         ########   odam.nl         */
+/*   Created: 2020/07/30 16:53:25 by avan-dam      #+#    #+#                 */
+/*   Updated: 2020/08/27 09:57:48 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef ZOMBIEHORDE_H
+# define ZOMBIEHORDE_H
 
-int main(void)
-{
-    ponyOnTheHeap();
-    ponyOnTheStack();
-    return (0);
-}
+#include "Zombie.hpp"
+
+class ZombieHorde {
+private:
+    Zombie* _Zombies;
+    int     _numb;
+public:
+	ZombieHorde(int N);
+	~ZombieHorde( );
+    void            announce();
+    std::string     randomChump(int rannb);
+
+
+};
+
+#endif

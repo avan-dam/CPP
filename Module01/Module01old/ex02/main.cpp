@@ -5,16 +5,28 @@
 /*                                                     +:+                    */
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/29 14:10:26 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/02 10:10:25 by Amber         ########   odam.nl         */
+/*   Created: 2020/07/30 16:53:30 by avan-dam      #+#    #+#                 */
+/*   Updated: 2020/08/26 18:42:41 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include "ZombieEvent.hpp"
+#include "Zombie.hpp"
 
-int main(void)
+int    main(void)
 {
-    ponyOnTheHeap();
-    ponyOnTheStack();
+    Zombie normal("namey", "typey");
+    normal.announce();
+    ZombieEvent Event;
+    Event.setZombieType("green");
+    Zombie *Zoom = Event.newZombie("Amber");
+    Zoom->announce();
+    srand((unsigned) time(0));
+    Zombie* RandomZomb1 = Event.randomChump("piglet");
+    Zombie* RandomZomb2 = Event.randomChump("piglet");
+    delete Zoom;
+    delete RandomZomb1;
+    delete RandomZomb2;
+        // system("leaks executable.out");
     return (0);
 }

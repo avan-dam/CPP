@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Zombie.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/29 14:10:26 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/02 10:10:25 by Amber         ########   odam.nl         */
+/*   Created: 2020/07/30 16:53:25 by avan-dam      #+#    #+#                 */
+/*   Updated: 2020/08/07 14:29:06 by salbregh      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef ZOMBIE_H
+# define ZOMBIE_H
 
-int main(void)
-{
-    ponyOnTheHeap();
-    ponyOnTheStack();
-    return (0);
-}
+#include <iostream>
+
+std::string    randomChump(int rannb);
+
+class Zombie {
+private:
+    std::string _type;
+    std::string _name;
+public:
+	Zombie(std::string name, std::string type);
+	Zombie();
+	~Zombie();
+    void        announce();
+    void        setmezombie(std::string name, std::string type);
+};
+
+#endif

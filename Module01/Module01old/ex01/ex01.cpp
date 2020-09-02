@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   ex01.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/29 14:10:26 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/02 10:10:25 by Amber         ########   odam.nl         */
+/*   Created: 2020/07/30 16:10:53 by avan-dam      #+#    #+#                 */
+/*   Updated: 2020/08/26 18:37:16 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include <iostream>
 
-int main(void)
+void memoryLeak()
 {
-    ponyOnTheHeap();
-    ponyOnTheStack();
-    return (0);
+    std::string* panther = new std::string("String panther");
+    std::cout << *panther << std::endl;
+    delete panther;
 }
+
+// int main()
+// {
+//     memoryLeak();
+//     system("leaks executable.out");
+//     return (0);
+// }

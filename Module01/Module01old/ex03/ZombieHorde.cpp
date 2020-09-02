@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/02 16:15:42 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/02 10:25:56 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/27 09:57:47 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,7 @@ std::string    ZombieHorde::randomChump(int rannb)
         name = "rosie";
     if (nb == 7)
         name = "Jacob";
+    if (nb == 8)
+        name = "Alejandro";
     return(name);
 }

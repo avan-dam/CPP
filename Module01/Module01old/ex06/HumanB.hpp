@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   HumanB.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/29 14:10:26 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/02 10:10:25 by Amber         ########   odam.nl         */
+/*   Created: 2020/08/03 12:31:34 by avan-dam      #+#    #+#                 */
+/*   Updated: 2020/08/27 11:18:10 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+# ifndef HUMANB_H
+#define HUMANB_H
 
-int main(void)
-{
-    ponyOnTheHeap();
-    ponyOnTheStack();
-    return (0);
-}
+#include "Weapon.hpp"
+
+class HumanB {
+    private:
+        Weapon		*_weapon;
+        std::string	_name;
+    public:
+        void        attack();
+        void        setWeapon(Weapon &weaponB);
+        HumanB(std::string name);
+        ~HumanB();
+};
+
+#endif

@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Pony.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/29 14:10:26 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/02 10:10:25 by Amber         ########   odam.nl         */
+/*   Created: 2020/07/29 14:10:33 by avan-dam      #+#    #+#                 */
+/*   Updated: 2020/07/30 15:58:17 by avan-dam      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef PONY_H
+# define PONY_H
 
-int main(void)
+#include <string.h>
+#include <iostream>
+
+void    ponyOnTheHeap();
+void    ponyOnTheStack();
+
+
+class Pony
 {
-    ponyOnTheHeap();
-    ponyOnTheStack();
-    return (0);
-}
+    private:
+        std::string _colour;
+        std::string _breed;
+        std::string _playfulness;
+
+    public:
+        Pony(std::string _colour, std::string _breed, std::string _playfulness);
+        ~Pony(void);
+};
+
+#endif

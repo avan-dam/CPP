@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/29 14:18:03 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/02 10:10:27 by Amber         ########   odam.nl         */
+/*   Updated: 2020/08/26 18:32:07 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Pony::~Pony(void)
 
 void ponyOnTheHeap()
 {
-    Pony* jimmy = new (std::nothrow) Pony("grey", "giant", "awsomely");
+    Pony* jimmy = new Pony("grey", "giant", "awsomely");
     if (jimmy == NULL)
     {
         std::cout << "allocation failed" << std::endl;

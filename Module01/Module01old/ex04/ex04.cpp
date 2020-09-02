@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   ex04.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/08/02 16:19:44 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/02 10:28:39 by Amber         ########   odam.nl         */
+/*   Created: 2020/08/02 21:27:35 by Amber         #+#    #+#                 */
+/*   Updated: 2020/08/07 14:37:58 by salbregh      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include "ZombieHorde.hpp"
+#include <iostream>
+
+void    brain()
+{
+    std::string brian = "HI THIS IS BRAIN";
+    std::string* brianPtr = &brian;
+    std::string& brianRef = brian;
+    
+    std::cout  << *brianPtr << std::endl;
+    std::cout << brianRef << std::endl;
+}
 
 int main(void)
 {
-    srand((unsigned) time(0));
-    ZombieHorde Zoomers(5);
-    Zoomers.announce();
-            // system("leaks executable.out");
+    brain();
+    return 0;
 }
