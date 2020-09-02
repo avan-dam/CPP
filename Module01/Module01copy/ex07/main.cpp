@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/03 15:18:06 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/02 11:12:45 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 12:57:39 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,20 @@ int main(int argc, char **argv)
         std::cout << "New file cannot open" << std::endl;
         return (-1);
     }
-	while(getline(ifs,str)) // all lines
+    while(getline(ifs,str)) // all lines
     {
-        int i = 0;
-        while (str.find((argv[2]), i) != std::string::npos)
-        {
-            str.replace(str.find(argv[2]), s1.length(), argv[3]);
-            i = i + s2.length();
-        }
+        strnew.append(str);
         if (!ifs.eof())
-            ofs << str << std::endl;
-        else
-            ofs << str;
+            strnew.append("\n");
     }
+    int i = 0;
+    size_t k = 0;
+    while ((k = strnew.find(s1, i)) != std::string::npos)
+    {
+        strnew.replace(k, s1.length(), s2);
+        i = k + s2.length();
+    }
+    ofs << strnew;
     ifs.close();
 	ofs.close();
     return (1);
