@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/07 17:05:29 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/20 10:43:10 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 13:53:54 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class ScavTrap {
         int			_armordamagereduction;
     public:
         ScavTrap(std::string name);
+        ScavTrap();
         ScavTrap( ScavTrap const & src );
         ~ScavTrap();
         std::string getName( void ) const;

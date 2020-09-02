@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/07 17:28:13 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/20 10:43:07 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 13:54:49 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,21 @@ ScavTrap::ScavTrap(std::string name)
     this->_meleeattackdamage = 20;
     this->_rangedattackdamage = 15;
     this->_armordamagereduction = 3;
+    std::cout << "Woo hoo ! " << this->_name << " now exists" << std::endl;
+    return ;
+}
+
+ScavTrap::ScavTrap()
+{
+    this->_hitpoints = 100;
+    this->_maxhitpoints = 100;
+    this->_energypoints = 50;
+    this->_maxenergypoints = 50;
+    this->_level = 1;
+    this->_meleeattackdamage = 20;
+    this->_rangedattackdamage = 15;
+    this->_armordamagereduction = 3;
+    this->_name = "Queen";
     std::cout << "Woo hoo ! " << this->_name << " now exists" << std::endl;
     return ;
 }
