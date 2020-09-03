@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 13:27:31 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/02 14:26:37 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 15:44:32 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ FragTrap::FragTrap() : ClapTrap("Queen")
     return ;
 }
 
-FragTrap::FragTrap( FragTrap const & src )
+FragTrap::FragTrap( FragTrap const & src ) : ClapTrap()
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = src;

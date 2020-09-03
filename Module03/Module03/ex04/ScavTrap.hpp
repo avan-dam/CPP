@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 13:27:44 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/02 14:47:28 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/03 10:09:27 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SCAVTRAP_H
 
 #include <iostream>
+#include <cstdlib>
 
 #include "ClapTrap.hpp"
 

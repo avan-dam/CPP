@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 13:27:31 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/02 14:45:21 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 15:46:49 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ NinjaTrap::~NinjaTrap()
     return ;
 }
 
-NinjaTrap::NinjaTrap( NinjaTrap const & src )
+NinjaTrap::NinjaTrap( NinjaTrap const & src ) : ClapTrap()
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = src;

@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/07 17:05:29 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/02 13:53:54 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/03 10:06:42 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SCAVTRAP_H
 
 #include <iostream>
-
+#include <cstdlib>
 
 class ScavTrap {
     private:

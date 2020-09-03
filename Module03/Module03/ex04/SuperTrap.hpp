@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 15:31:38 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/20 10:46:14 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 15:50:02 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class SuperTrap : public FragTrap, public NinjaTrap {
         SuperTrap(std::string name);
         SuperTrap();
         ~SuperTrap();
+        SuperTrap( SuperTrap const & src );
+        SuperTrap &  operator=( SuperTrap const & rhs );
         void		rangedAttack(std::string const & target);
         void        meleeAttack(std::string const & target);
         void		vaulthunter_dot_exe(std::string const & target);

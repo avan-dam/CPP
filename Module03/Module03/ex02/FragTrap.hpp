@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 13:27:39 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/02 14:26:02 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/03 10:07:24 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FRAGTRAP_H
 
 #include <iostream>
+#include <cstdlib>
 
 #include "ClapTrap.hpp"
 

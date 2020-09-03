@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/11 12:51:43 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/02 14:47:54 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 15:52:31 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,14 @@ SuperTrap::~SuperTrap()
     return ;
 }
 
-ScavTrap::ScavTrap( ScavTrap const & src )
+SuperTrap::SuperTrap( SuperTrap const & src ) : ClapTrap(), FragTrap(), NinjaTrap()
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = src;
     return;
 }
 
-ScavTrap &    ScavTrap::operator=( ScavTrap const & rhs )
+SuperTrap &    SuperTrap::operator=( SuperTrap const & rhs )
 {
     std::cout << "Assignment operator called" << std::endl;
     if ( this != &rhs )

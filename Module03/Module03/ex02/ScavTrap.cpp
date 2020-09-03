@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/10 13:27:41 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/02 14:20:04 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/02 15:44:41 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ ScavTrap::~ScavTrap()
     return ;
 }
 
-ScavTrap::ScavTrap( ScavTrap const & src )
+ScavTrap::ScavTrap( ScavTrap const & src ) : ClapTrap()
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = src;
