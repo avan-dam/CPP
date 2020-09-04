@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 15:33:39 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/14 15:34:47 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/03 12:08:48 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Zombo::~Zombo()
     std::cout << "Bleuark..." << std::endl;
 }
 
-Zombo::Zombo( const Zombo & src )
+Zombo::Zombo( const Zombo & src ) : Victim()
 {
     *this = src;
     return;

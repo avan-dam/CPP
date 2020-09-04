@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 16:55:40 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/19 16:17:28 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/03 12:27:48 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void MyWeapon::attack() const
     return ;
 }
 
-MyWeapon::MyWeapon( const MyWeapon & src )
+MyWeapon::MyWeapon( const MyWeapon & src ) : AWeapon()
 {
 	*this = src;
 	return;

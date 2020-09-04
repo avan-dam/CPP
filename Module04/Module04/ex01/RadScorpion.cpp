@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/17 12:02:11 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/19 16:17:13 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/03 12:12:06 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ RadScorpion::~RadScorpion()
     return ;
 }
 
-RadScorpion::RadScorpion( const RadScorpion & src )
+RadScorpion::RadScorpion( const RadScorpion & src ) : Enemy()
 {
     *this = src;
     return;

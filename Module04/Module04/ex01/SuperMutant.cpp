@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/17 12:02:11 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/19 16:17:09 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/03 12:11:53 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ SuperMutant::~SuperMutant()
     return ;
 }
 
-SuperMutant::SuperMutant( const SuperMutant & src )
+SuperMutant::SuperMutant( const SuperMutant & src ) : Enemy()
 {
     *this = src;
     return;

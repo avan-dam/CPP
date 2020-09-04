@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/19 16:47:23 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/20 16:14:26 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/03 12:43:29 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Cure::Cure() : AMateria("cure")
     return ;
 }
 
-Cure::Cure( const Cure & src )
+Cure::Cure( const Cure & src ) : AMateria()
 {
     *this = src;
     return ;

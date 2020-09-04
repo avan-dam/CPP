@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/24 16:55:49 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/25 03:53:05 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/03 13:23:16 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ ShrubberyCreationForm::ShrubberyCreationForm() : Form("invalid", 0, 0)
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : Form(target, 145, 137)
 {
-	std::ofstream 		ofs(target);
-  	if (! ofs.is_open())
+	std::ofstream 		ofs(target.c_str());
+  	if (!ofs.is_open())
 	{
         std::cout << "File not there" << std::endl;
     }

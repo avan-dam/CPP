@@ -6,7 +6,7 @@
 #    By: avan-dam <avan-dam@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/08/19 16:15:55 by avan-dam      #+#    #+#                  #
-#    Updated: 2020/08/27 21:22:17 by Amber         ########   odam.nl          #
+#    Updated: 2020/09/03 13:18:51 by Amber         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ all: $(NAME)
 
 $(NAME): $(FILES)
 	$(CXX) $(FILES) $(FLAGS) -o $(NAME)
-
+	
 clean:
 	rm -f $(NAME)
 

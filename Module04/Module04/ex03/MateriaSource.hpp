@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/20 11:07:07 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/20 16:28:48 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/03 12:42:51 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MATERIASOURCE_H
 
 #include <iostream>
+#include <cstring>
 #include "IMateriaSource.hpp"
 #include "AMateria.hpp"
 

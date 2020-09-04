@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 17:51:39 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/17 14:45:59 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/04 12:27:51 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Enemy
 		int getHP() const;
 		void setHP(int numb);
 		virtual void takeDamage(int damage);
+	private:
 };
 
 #endif

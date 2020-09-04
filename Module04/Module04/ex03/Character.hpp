@@ -6,16 +6,17 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/19 18:12:19 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/20 15:03:09 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/03 12:43:06 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_H
 # define CHARACTER_H
 
+#include <iostream>
+#include <cstring>
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
-#include <iostream>
 
 class Character : public ICharacter
 {

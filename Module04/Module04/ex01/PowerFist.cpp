@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 16:55:40 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/19 16:17:17 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/03 12:27:04 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void PowerFist::attack() const
     return ;
 }
 
-PowerFist::PowerFist( const PowerFist & src )
+PowerFist::PowerFist( const PowerFist & src ) : AWeapon()
 {
 	*this = src;
 	return;

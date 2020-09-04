@@ -6,20 +6,22 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 13:42:12 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/12 17:47:45 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/03 11:03:21 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sorcerer.hpp"
 
 Sorcerer::Sorcerer()
-{}
+{
+    return ;
+}
 
 Sorcerer::Sorcerer(const std::string name, const std::string title)
 {
 	this->_name = name;
 	this->_title = title;
-	std::cout << name << ", " << title << " is born!" << std::endl;
+	std::cout << this->_name << ", " << this->_title << " is born!" << std::endl;
 	return ;
 }
 

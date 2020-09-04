@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 13:42:08 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/14 15:32:55 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/03 12:08:36 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Peon::~Peon()
     std::cout << "Bleuark..." << std::endl;
 }
 
-Peon::Peon( const Peon & src )
+Peon::Peon( const Peon & src ) : Victim()
 {
     *this = src;
     return;

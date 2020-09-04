@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/20 11:51:11 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/20 16:14:48 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/03 12:43:44 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Ice::~Ice()
     return ;
 }
 
-Ice::Ice( const Ice & src )
+Ice::Ice( const Ice & src ) : AMateria()
 {
     *this = src;
     return ;

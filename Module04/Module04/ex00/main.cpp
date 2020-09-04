@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 13:42:05 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/19 16:14:33 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/03 15:01:52 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ void    theirtest()
 int main()
 {
     theirtest();
-    mytest();
+    // mytest();
     return 0;
 }

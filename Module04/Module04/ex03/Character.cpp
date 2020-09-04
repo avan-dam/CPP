@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/19 18:17:38 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/20 16:26:48 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/03 12:47:01 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void Character::equip(AMateria* m)
         return ;
     }this->_MyMateria[this->_count] = m->clone();
     this->_count = this->_count + 1;
-    std::cout << "Equiped" <<std::endl;
+    std::cout << this->_name << " equiped with type " << m->getType() <<std::endl;
     return ;
 }
 

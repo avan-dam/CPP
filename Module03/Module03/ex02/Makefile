@@ -6,7 +6,7 @@
 #    By: avan-dam <avan-dam@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/08/19 16:15:48 by avan-dam      #+#    #+#                  #
-#    Updated: 2020/09/03 09:58:11 by Amber         ########   odam.nl          #
+#    Updated: 2020/09/03 12:01:58 by Amber         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = executable.out
 
 CXX = clang++
 
-# G++ = /usr/bin/g++
+# G++ = /usr/local/bin/g++-10
 
 FLAGS = -Wall -Wextra -Werror -pedantic -std=c++98
 

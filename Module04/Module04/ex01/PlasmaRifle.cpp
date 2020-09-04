@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 16:55:40 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/19 16:17:23 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/03 12:27:29 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void PlasmaRifle::attack() const
     return ;
 }
 
-PlasmaRifle::PlasmaRifle( const PlasmaRifle & src )
+PlasmaRifle::PlasmaRifle( const PlasmaRifle & src ) : AWeapon()
 {
 	*this = src;
 	return;

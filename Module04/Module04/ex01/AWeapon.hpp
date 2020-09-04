@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 15:54:30 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/19 16:17:55 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/04 12:27:27 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 
 class AWeapon
-{
+{	
     protected:
         std::string _name;
 		int			_DP;
@@ -31,6 +31,7 @@ class AWeapon
     	int getAPCost() const;
     	int getDamage() const;
     	virtual void attack() const = 0;
+	private:
 };
 
 #endif

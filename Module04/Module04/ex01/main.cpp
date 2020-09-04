@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 17:13:29 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/19 16:17:37 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/03 15:40:43 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,18 @@ int main()
 	std::cout << *me;
 	me->attack(b);
 	std::cout << *me;
-	me->attack(b);
-	std::cout << *me;
 	Character* you = new Character("you");
 	std::cout << *you;
 	Enemy* mi = new MyEnemy();
 	AWeapon* mo = new MyWeapon();
 	mi->takeDamage(10);
 	you->equip(mo);
-	std::cout << *you;
 	Enemy* i = new RadScorpion();
 	you->attack(i);
-	delete mo;
-	delete mi;
 	std::cout << *you;
 	you->recoverAP();
 	std::cout << *you;
+	delete mo;
+	delete mi;
 	return 0;
 }

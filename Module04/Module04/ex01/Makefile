@@ -6,13 +6,15 @@
 #    By: avan-dam <avan-dam@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/08/19 16:15:55 by avan-dam      #+#    #+#                  #
-#    Updated: 2020/08/20 16:16:07 by Amber         ########   odam.nl          #
+#    Updated: 2020/09/03 15:41:25 by Amber         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = executable.out
 
 CXX = clang++
+
+# G++ = /usr/local/bin/g++-10
 
 FLAGS = -Wall -Wextra -Werror -pedantic -std=c++98
 
@@ -23,6 +25,9 @@ all: $(NAME)
 
 $(NAME):
 	$(CXX) $(FILES) $(FLAGS) -o $(NAME)
+
+# g++:
+	# $(G++) $(FILES) $(FLAGS) -o $(NAME)
 
 clean:
 	rm -f $(NAME)

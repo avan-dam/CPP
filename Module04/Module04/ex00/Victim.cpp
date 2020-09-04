@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 13:42:18 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/19 16:14:36 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/03 14:55:46 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Victim::Victim( const Victim & src )
 
 Victim &    Victim::operator=( const Victim & rhs )
 {
-    std::cout << "Assignment operator called" << std::endl;
+    // std::cout << "Assignment operator called" << std::endl;
     if ( this != &rhs )
         this->_name = rhs._name;
     return *this;
@@ -58,4 +58,5 @@ std::ostream &  operator<<(std::ostream & o, Victim const & i )
 void Victim::getPolymorphed() const
 {
     std::cout << this->_name << " has been turned into a cute little sheep!" << std::endl;
+    return ;
 }

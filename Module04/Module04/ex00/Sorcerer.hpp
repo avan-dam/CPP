@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 13:42:15 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/19 16:14:20 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/03 11:09:58 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ class Sorcerer {
         std::string     getTitle() const;
         void            polymorph(Victim const & viccy) const;
         void            polymorph(Peon const & viccy) const;
-
 };
 
 std::ostream &  operator<<(std::ostream & o, Sorcerer const & i );

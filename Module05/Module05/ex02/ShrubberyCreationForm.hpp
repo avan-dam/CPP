@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/24 16:52:20 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/25 03:44:56 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/03 13:22:01 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include "Form.hpp"
 #include <fstream>
 #include <iostream>
+#include <string>
+
 
 // class Form;
 

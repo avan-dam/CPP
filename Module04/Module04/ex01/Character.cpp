@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/17 12:24:23 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/19 16:17:53 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/03 15:33:41 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 
 Character::Character()
 {
+    this->_name = "Queen";
+    this->_AP = 40;
+    this->_weapon = NULL;
     return ;
 }
 
@@ -66,8 +69,10 @@ void Character::attack(Enemy* target)
     this->_weapon->attack();
     int numb = target->getHP() - this->_weapon->getDamage();
     target->setHP(numb);
-    if (target->getHP() <= 0)
+    if (target->getHP() <= 0) {
         delete target;
+        target = NULL;
+    }
     return ;
 }
 

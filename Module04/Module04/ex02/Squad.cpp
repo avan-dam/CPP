@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/17 20:03:06 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/20 10:53:36 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/04 11:35:20 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int Squad::getCount() const
 
 ISpaceMarine* Squad::getUnit(int unit) const
 {
+    if (unit < 0 || unit > 100)
+        return (NULL);
     return this->_marine[unit];
 }
 

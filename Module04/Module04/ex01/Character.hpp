@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/17 12:19:14 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/19 16:17:50 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/04 12:28:10 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 class Character
 {
     private:
-        Character();
         int         _AP;
         AWeapon     *_weapon;
         std::string _name;
     public:
+        Character();
         Character(std::string const & name);
 		Character( const Character & src );
         Character &    operator=(  const Character & rhs );
@@ -34,7 +34,6 @@ class Character
         std::string const & getName() const;
         int const & getAP() const;
         std::string getWeaponName() const;
-
 };
 std::ostream &  operator<<(std::ostream & o, Character const & i );
 
