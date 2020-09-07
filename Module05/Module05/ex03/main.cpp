@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/21 18:06:22 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/07 13:15:01 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/07 16:09:12 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,19 @@
 #include "Form.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main(void)
 {
-    Bureaucrat B("me" , 3);
-    PresidentialPardonForm P("targetLy");
-    std::cerr << P << std::endl;    
+    Intern I;
+    Form *f = I.makeForm("PresidentialPardonForm", "that");
+    std::cout << *f << std::endl;
+    Form *g = I.makeForm("RobotomyRequestForm", "that");
+    std::cout << *g << std::endl;
     try {
-        P.execute(B);
-    }
-    catch (std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;    
-    } 
-    std::cerr << P << std::endl;    
-    std::cerr << B << std::endl;    
-    try {
-        B.signForm(P);
-    }
-    catch (std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;   
-    } 
-    std::cerr << P << std::endl;    
-    try {
-        P.execute(B);
-    }
-    catch (std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;    
-    } 
-    RobotomyRequestForm R("Robotme");
-    std::cerr << R << std::endl;    
-    ShrubberyCreationForm S("Ser");
-    std::cerr << S << std::endl;    
-    Bureaucrat A("beeee" , 3);
-    try {
-        A.executeForm(S);
+        Form *h = I.makeForm("noone", "that");
+        std::cout << *h << std::endl;
+
     }
     catch (std::exception& e)
     {
