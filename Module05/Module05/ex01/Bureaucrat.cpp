@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/21 17:46:43 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/24 16:49:51 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/04 13:56:07 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,7 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name), _grade
 Bureaucrat &    Bureaucrat::operator=( Bureaucrat const & rhs )
 {
     if ( this != &rhs )
-    {
-        this->_name = rhs._name;
         this->_grade = rhs._grade;
-    }
     return *this;
 }
 
@@ -68,24 +65,26 @@ int	                    Bureaucrat::getGrade() const
 
 void		            Bureaucrat::incrementGrade()
 {
-      if (this->_grade + 1 > 150) 
-            throw GradeTooLowException(); 
-    this->_grade++;  
+      if (this->_grade - 1 < 1) 
+            throw GradeTooHighException(); 
+    this->_grade--;  
 }
 
 void		            Bureaucrat::decrementGrade()
 {
-    if (this->_grade - 1 < 1)
-        { 
-            throw GradeTooHighException(); 
-        }    
-    this->_grade--;     
+    if (this->_grade + 1 > 150)
+            throw GradeTooLowException();    
+    this->_grade++;     
 }
 
 void			Bureaucrat::signForm(Form& F)
 {
     if (this->_grade > F.getGradeSignIn())
+    {
+        std::cout << "Bureaucrat called " << this->getName(); 
+        std::cout << "cannot sign form beacuse ";   
         throw GradeTooHighException(); 
+    }
     if (F.getSigned() == true)
     {
     std::cout <<"Bureaucrat called " << this->getName(); 

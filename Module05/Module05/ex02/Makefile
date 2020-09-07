@@ -6,7 +6,7 @@
 #    By: avan-dam <avan-dam@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/08/19 16:15:55 by avan-dam      #+#    #+#                  #
-#    Updated: 2020/09/03 12:56:36 by Amber         ########   odam.nl          #
+#    Updated: 2020/09/04 14:27:29 by Amber         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ g++:
 
 clean:
 	rm -f $(NAME)
+	rm -f *_shrubbery
 
 fclean: clean
 

@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/21 18:06:22 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/24 16:04:10 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/04 13:43:24 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,14 @@ int main(void)
     {
         std::cerr << e.what() << std::endl;
     }
-    std::cout << D << std::endl;
+    try {
+        D.incrementGrade();
+        std::cout << D << std::endl;
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;    
+    }   
     try {
         D.incrementGrade();
         std::cout << D << std::endl;

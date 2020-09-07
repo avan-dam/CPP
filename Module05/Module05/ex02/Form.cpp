@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/23 15:30:35 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/25 03:37:39 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/07 11:35:43 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,11 @@ void                    Form::beSigned(Bureaucrat &B)
     if (B.getGrade() > this->_gradesignin)
         throw GradeTooLowException(); 
     this->_signed = true;
+}
+
+const char*            Form::FormNotSignedException::what() const throw()
+{
+    return "Form not signed exception";
 }
 
 std::ostream &  operator<<(std::ostream & o, Form const & i )

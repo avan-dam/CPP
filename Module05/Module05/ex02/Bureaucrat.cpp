@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/21 17:46:43 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/24 16:49:51 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/07 13:05:06 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,7 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name), _grade
 Bureaucrat &    Bureaucrat::operator=( Bureaucrat const & rhs )
 {
     if ( this != &rhs )
-    {
-        this->_name = rhs._name;
         this->_grade = rhs._grade;
-    }
     return *this;
 }
 
@@ -54,6 +51,11 @@ const char*             Bureaucrat::GradeTooHighException::what() const throw()
 const char*            Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "Grade Too Low Exception";
+}
+
+const char*            Bureaucrat::FormNotSignedException::what() const throw()
+{
+    return "Form Not Signed Exception";
 }
 
 const std::string		Bureaucrat::getName() const 
@@ -68,33 +70,49 @@ int	                    Bureaucrat::getGrade() const
 
 void		            Bureaucrat::incrementGrade()
 {
-      if (this->_grade + 1 > 150) 
-            throw GradeTooLowException(); 
-    this->_grade++;  
+      if (this->_grade - 1 < 1) 
+            throw GradeTooHighException(); 
+    this->_grade--;  
 }
 
-void		            Bureaucrat::decrementGrade()
+void		    Bureaucrat::decrementGrade()
 {
-    if (this->_grade - 1 < 1)
-        { 
-            throw GradeTooHighException(); 
-        }    
-    this->_grade--;     
+    if (this->_grade + 1 > 150)
+            throw GradeTooLowException();    
+    this->_grade++;     
 }
 
 void			Bureaucrat::signForm(Form& F)
 {
     if (this->_grade > F.getGradeSignIn())
-        throw GradeTooHighException(); 
+    {
+        std::cout << "Bureaucrat called " << this->getName(); 
+        std::cout << "cannot sign form beacuse ";   
+        throw GradeTooLowException(); 
+    }
     if (F.getSigned() == true)
     {
-    std::cout <<"Bureaucrat called " << this->getName(); 
-    std::cout << " cannot sign form because form already signed" << std::endl;
-    return ;
+        std::cout <<"Bureaucrat called " << this->getName(); 
+        std::cout << " cannot sign form because form already signed" << std::endl;
+        return ;
     }
     F.beSigned(*this);
 }
 
+void		Bureaucrat::executeForm(Form const & form)
+{
+    if (form.getSigned() == false)
+    {
+        throw FormNotSignedException(); 
+        return ;
+    }
+    if (this->getGrade() > form.getGradeExecute())
+    {
+        throw GradeTooLowException(); 
+        return ;
+    }
+    form.execute(*this);
+}
 
 std::ostream &              operator<<(std::ostream & o, Bureaucrat const & i )
 {
