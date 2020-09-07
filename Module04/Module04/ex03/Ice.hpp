@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/20 11:51:11 by Amber         #+#    #+#                 */
-/*   Updated: 2020/08/20 15:59:51 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/04 13:03:29 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 class Ice : public AMateria
 {
+    private:
+        unsigned int _xp;
     public:
         Ice();
         ~Ice();

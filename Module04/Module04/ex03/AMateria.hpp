@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/19 16:27:45 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/04 12:22:44 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/04 13:00:29 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ class ICharacter;
 
 class AMateria
 {
+	private:
+		unsigned int _xp;
 	protected:
 		std::string _type;
-		unsigned int _xp;
 		AMateria();
     public:
         AMateria(std::string const & type);

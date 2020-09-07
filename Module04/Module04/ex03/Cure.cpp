@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/19 16:47:23 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/03 12:43:29 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/04 13:04:47 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Cure::~Cure()
 
 Cure::Cure() : AMateria("cure")
 {
+    this->_xp = 0;
     // std::cout << "cure is alive" << std::endl;
     return ;
 }

@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/19 16:47:23 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/20 16:00:05 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/04 13:03:19 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 class Cure : public AMateria
 {
+    private:
+        unsigned int _xp;
     public:
         Cure();
         ~Cure();

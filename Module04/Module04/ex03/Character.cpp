@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/19 18:17:38 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/03 12:47:01 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/04 13:14:57 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,10 @@ void Character::equip(AMateria* m)
 {
     if (this->_count >= 4)
     {
-         std::cout << "Not equiped" <<std::endl;
+        std::cout << "full" <<std::endl;
         return ;
-    }this->_MyMateria[this->_count] = m->clone();
+    }
+    this->_MyMateria[this->_count] = m->clone();
     this->_count = this->_count + 1;
     std::cout << this->_name << " equiped with type " << m->getType() <<std::endl;
     return ;
@@ -73,9 +74,8 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-    if (idx > this->_count)
-        return ;
-    this->_MyMateria[idx] = NULL;
+    if (idx >=0 && idx < this->_count)
+        this->_MyMateria[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target)

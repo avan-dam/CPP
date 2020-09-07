@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/20 11:51:11 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/03 12:43:44 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/04 13:05:04 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 Ice::Ice() : AMateria("ice")
 {
+    this->_xp = 0;
     // std::cout << "Ice is dead" << std::endl;
     return ;
 }
