@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/21 18:06:22 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/07 16:09:12 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/08 09:58:57 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,25 @@
 int main(void)
 {
     Intern I;
-    Form *f = I.makeForm("PresidentialPardonForm", "that");
-    std::cout << *f << std::endl;
-    Form *g = I.makeForm("RobotomyRequestForm", "that");
-    std::cout << *g << std::endl;
+    try {
+        Form *f = I.makeForm("PresidentialPardonForm", "that");
+        std::cout << *f << std::endl;
+
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;    
+    } 
+    try {
+        Form *g = I.makeForm("RobotomyRequestForm", "that");
+        std::cout << *g << std::endl;
+
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;    
+    } 
+
     try {
         Form *h = I.makeForm("noone", "that");
         std::cout << *h << std::endl;

@@ -1,0 +1,256 @@
+INTRODUCTION:
+- casts are extended in C++ and are a little more complicated than casts
+start by talking about casting in C and then move onto casting in C++
+
+FROM C Type conversion:
+- C supports two casts 
+e.g. (int)
+There is also the implicit cast - probably therefore gone unnoticed
+sometimes used without knowing
+e.g.
+int a = 42;
+double b = a;
+initializing a double with an int - implicit cast the compiler will cast for you
+can be done becuase its a bigger type more precise than the interger type
+int variable = 32 bits
+double variable = 64 bits
+
+Floats and doubles in memory is very different from the representation of ints
+with ints all bits are aligned and by calculating the exponent you can find the decimal value
+but floats and doubles are coded on bits, the first bit is the signed bits, then a number of bits
+representing the exponent then a set of bits reprensting the significant
+so if we copy all the bits from an int will have the same value
+even though the values are the same this version of changing the coding used for a byte
+in order to keep the same value is called a conversion
+int type was smaller and less precise than the double type
+so as long as you enter a value in the more accurate type no problem
+
+but if you want to convert from more accurate type to a less accurate type this can cause problems 
+as can loose precision. As long as its for a one time calcuation its not normally an issue but if its made in a loop
+it can create real problems
+
+int a = 42;
+double d = a;
+int e = d; // this behaviour is hazadous could be a programming mistake
+int f = (int)d; // this is better practice - type demotion
+in the second f example telling the compiler you know you are doing a downgrade.
+This is far better practice
+-wno-conversion fall prevents implicit classes when loosing accuracy
+
+[      42]: 00000000 00000000 00000000 00101010
+Above is the represntation in bits of our interger (4 bytes each having 8 bits)
+[42.00000]: 01000000 01000101 00000000 00000000 00000000 00000000 00000000 00000000
+this is the binary represntation of a double of 42.0, both values are equal but the binary represnations of these values are v different
+
+FROM C TYPE REINTERPRETATION:
+Identity cast - the base value keeps the sam ebits in conversion in the same order
+so there is no actual conversion during the cast
+This identity conversion is called a reinterpretation.
+Reinterprtation is a second cast effect
+
+e.g.
+int main(void)
+{
+    float a = 420.042f;
+
+    void *b = &a; 
+    void *c = (void *)&a; 
+}
+
+There is a hierachy of types just like with address types
+the void type allows us to store an adress of any type
+so void type is more generic
+the address of  a float is a more accurate notion than the void one
+
+    void *b = &a; 
+    reinterpration of a float as a void, as nothing between equals and &
+
+    void *c = (void *)&a; 
+    same interprtation but with the implicit cast this time
+    reinterprating the address of a float as an address on anything
+    we lost of accuracy but gained in generosity
+
+    void * d = &a; // implicit promotion -> ok
+    int * e = d; // implicit demotion -> hazadous
+    int * f = (int *)d;// implicit demotion -> ok I obey
+
+converts the address of a float into the address of an int
+
+so this demonstrates the float being reinterpretted as an int 
+fucks things up - 420.041992 (closest representative value) in a float 
+and then in an int 1137837408
+All addresses remain the same
+but when you take the bits of a float and reinterpret them as an int without conversion
+we get a stupid int value completely wrong
+so there is still a notion of hierarcies n addresses
+
+the void * type will be more generic
+then all the address types
+so possible to loose accuracy and cast to void *
+but if you want to regain accuracy you have to be very careful with the type
+we choose to reinterpret it in
+
+ALWAYS USE EXPLICIT REINTERPRTATIONS
+a cast can be an idenity cast meaning that the bits are reogrganised and this identity cast is
+a reintrpration  
+
+FROM C TYPE QUALIFIER REINTERPRETATION:
+Type qualifier casts: A particular case of reinterptation which means that there is no bit transformation
+In c these are key words like CONST and VOLATILE
+
+The notion of type qualifier will add a notion of hierarcy through our types.
+
+If you want to go from a const address to a non const one it wont compile 
+in the case of an implict will not compile but if you explicitly tell it it should work 
+ie. 
+   this no: int * e = d;
+   this ok: int * f = (int *)d;
+
+if the code is yours and you have access to the source you should consider changing your tpyes if you get those kind of erros
+
+UPCAST AND DOWNCAST:
+- sintax c casts in c++ context just for e.g.
+pointers are compatible between a base class and a daughter class
+these reinterpration of class addresses in c++ will be refered to as upcast and DOWNCAST
+
+    Child1  a;// reference value
+
+    Parent * b = &a; // implicit 'reinterpration' cast
+    Parent * c = (Parent *)&a;//explicit 'reinterprtation' cast
+    Parent * d = &a; // implicit upcast -> ok
+    Child1 * e = d; // implicit downcast -> hellNO
+    Child2* f =(Child2 *)d; // explicit downcast -> ok but really?
+
+Classes allow to introduce a new hierarchy through the inheritance tree of your classes
+the C cast is causing issues because it will compile but will not run properly
+as you see in the e.g. a child1 has been reinterpretted as a child2 which isnt good.
+
+STATIC CASTS:
+Allows us to make a certain number of conversions, the simplest possible
+but also walk through the inheritance tree
+keyword static_cast
+
+explicit casting in C++:
+    int d = static_cast<int>(b);//explicit demotion -> ok I obey
+
+static casts detect when we want to make a cast between addresses not belonging to the sme inheritance tree
+as seen in the e.g. in Unrelated cast
+So static casts make sure casts are made between compatible addresses in the same inheritance tree
+therefore there is a verticle hierarcy between classes we want to staic class but in this case in e.g. 
+Unrealted class is in a horiztonal relationship between the other classes as they are not related
+so will not compile
+
+
+DYNAMIC CAST:
+very different
+Its only happening at runtime (during the execution)
+all other classes are made during the compilation
+So the compiler does the cast normally done in a static way
+
+So when using these your code may compile but then fail at runtime
+So you will have to implement in your code a complete architecture to detect the case
+where the dynamic cast would fail and handel it properly
+
+Dynamic casts will only work with polymorphic instances meaning that
+we will be dealing with subtype polymorphism.
+At least one of the member functions will be virtual 
+so we will need in our class a method we can use the dynamic cast on 
+
+Dynamic cast will be used only for downcast and after checking whether the 
+downcast is possible or not
+look at e.g.6.cpp
+    Child1 * c = dynamic_cast<Child1 *>(b);
+    if (c == NULL) {
+        std::cout << "Conversion is NOT OK" << std::endl;
+    }
+    else {
+        std::cout << "Conversion is OK" << std::endl;
+    }
+here will return null when its impossible
+
+
+a case in programming we are not familiar with yet that will allow us to add plugins to our applications
+for example lets assume you extend your software using libraries as plugins
+and ofc in this plugin your code will be grouped under a class
+In your main application you will have a collection of all these plugins
+but the class present in your plugins will be different everytime it will be related to the plugin itself
+e.g. the plugin class
+from which all your plugins implementations will inherit.
+From there in your main application you will be casting your son for example to use it
+but as you are writing this code you only know the plug in pointer but you do not know its actual type
+you can make a stitic cast of son, but if it turns out to be a video plugin your application will just crash as soon as you
+use your plug in
+but when using a dynamic cast you can not crash your whole application
+it will either be the right type or it will return an error message without crashing everything
+
+cast happens at runtime and the RTTIs are enbabled e.g. at least one virtual member functions
+
+REINTERPRET CLASS:
+- allows you to do reinterpretations but also UPCASTS and DWONCASTS
+This class is the most open 
+can reinterpret any address with any other ofc with all the consequences it may have
+with the reinterpret class you need to know what you are doing ofc
+e.e.7
+
+CONST CAST:
+const cast is the c++ that allows to do a transformation of the type qualifiers
+e.g.8
+int main(void)
+{
+    int a = 42;                     //reference value
+
+    int const *b = &a;                       //implicit promotion ->ok
+    // int * c = b;                            //explicit demotion ->HELL NO
+    int * d = const_cast<int *>(b);         //explicit demotion -> ok 
+    return 0;
+}
+Ofc need to keep as many values const as possible
+Using const_cast make sure you have a very good reason
+but be aware of what you are doing and make sure it is not because of a design floor
+
+CAST OPERATORS:
+a new sintax that will allow you to define your classes specific operators in order to make explicit conversions of your class to a 
+type youre interested in
+e.g.9
+wont use everyday but good to know
+
+EXPLICIT KEYWORD:
+keywords above like const_cast and the <>
+this is familiar to a function call - the name of a function and in the <> somekind of parameter set
+close semantics to constructors
+when constructing instance you are writing the name of your instance and putting in brackets the name of what u wanna pass
+constructors are conceptually close to the cast
+C++ allows systamtically implicit casts of an expression whereever it is in the code
+e.g.10.cpp
+class A {};
+class B {};
+
+class C {
+    public:
+             C(A const & ) {return;}
+    explicit C(B const & ) {return;}
+};
+
+void f(C const & ) {
+    return;
+}
+
+int main(void)
+{
+    f(A()); // implicit conversion ok
+    // f(B()); // implicit conversion NOT OK, constructor is explicit
+    return(0);
+}
+
+To make this:
+    // f(B()); // implicit conversion NOT OK, constructor is explicit
+work we need to construct a C instance first from a B instance and then pass this instance to c 
+but making an implicit construction using an explicit conversion wont work since we have our explicit keyword
+
+You can choose which one of your constructors can be made implicitly and which ones cannot
+
+CONCLUSION:
+
+
+
+

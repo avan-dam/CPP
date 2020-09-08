@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/07 14:06:46 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/07 16:08:58 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/08 09:59:51 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,5 @@ Form*   Intern::makeForm(std::string name, std::string target)
 
 const char*            Intern::noFormException::what() const throw()
 {
-    return "No Form exception";
+    return "No Form with that name exception";
 }
