@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/21 18:06:22 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/08/24 16:38:07 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/09 14:24:11 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int main(void)
     {
         std::cerr << e.what() << std::endl;    
     } 
-        std::cout << C << std::endl;
-
+    std::cout << C << std::endl;
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/24 17:03:56 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/07 13:04:00 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/09 14:26:25 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class PresidentialPardonForm : public Form {
         PresidentialPardonForm( const PresidentialPardonForm & src );
         PresidentialPardonForm &    operator=(  const PresidentialPardonForm & rhs );
         void execute(Bureaucrat const & executor) const;
-        void    action() const;
+        void action() const;
 };
 
 #endif

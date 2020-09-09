@@ -250,7 +250,34 @@ but making an implicit construction using an explicit conversion wont work since
 You can choose which one of your constructors can be made implicitly and which ones cannot
 
 CONCLUSION:
+The identity conversion - bits after conversion were not reordered - same bits in the order 
+this is reinterpretations would allow us to work on more generic more accurate more accurate types of addresses
+there are particular types of reinterpretations - upcast and downcast allows us to navigate through a verticle class hierarchy
+also possible to reinterpret a type using the type qualifier and using the const keyword
+5 casts:
+- implicit cast
+- static cast
+- dynamic cast
+- reinterpret cast
+- const cast
+and also C cast which we will never use again in c++
+
+
+CAST                CONV.      REINT.      UPCAST      DOWNCAST        TYPEQUAL.
+implicit            Yes                     Yes
+static_cast         Yes                     Yes         Yes
+dynamic_cast                                Yes         Yes
+const_cast                                                              Yes
+reinterpret_cast                Yes         Yes         Yes
+Legacy C cast       Yes         Yes         Yes         Yes             Yes 
 
 
 
+CAST                Semantic checking       Reliable at run         Tested at run
+implicit            Yes                     Yes            
+static_cast         Yes
+dynamic_cast        Yes                     Yes                     Yes
+const_cast         
+reinterpret_cast    
+Legacy C cast      
 
