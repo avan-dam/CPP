@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   header.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/10 13:46:45 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/10 22:03:44 by Amber         ########   odam.nl         */
+/*   Created: 2020/09/10 21:31:16 by Amber         #+#    #+#                 */
+/*   Updated: 2020/09/10 21:37:06 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.hpp"
+#ifndef HEADER_H
+#define HEADER_H
 
-int main(void)
-{
-    srand((unsigned) time(0));
-    void * v = serialize();
-    Data* d = deserialize(v);
-    std::cout << "We have deserialized: " << d->s1 << d->n << d->s2;
-    delete d;
-    system("leaks convert");
-    return(0);
-}
+class Base {
+    public:
+        virtual ~Base();
+};
+
+class A : public Base {};
+class B : public Base {};
+class C : public Base {};
+
+Base * generate(void);
+void identify_from_pointer(Base * p);
+
+#endif

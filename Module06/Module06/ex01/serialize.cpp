@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/10 13:47:23 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/10 17:24:11 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/10 22:09:36 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,23 @@ std::string    changeme(std::string a)
 
 void * serialize(void)
 {
+    std::string a;
+    std::string b;
+
     Data* serialize = new (std::nothrow) Data;
     if (serialize == NULL)
     {
         std::cout << "allocation failed" << std::endl;
         return (NULL);
     }
-    std::string a;
     for(int i = 0; i < 8; i++)
         a = changeme(a);
-    serialize->s1 = a;
-    serialize->n = rand();
-    std::string b;
     for(int i = 0; i < 8; i++)
         b = changeme(b);
+    serialize->s1 = a;
+    serialize->n = rand();
     serialize->s2 = b;
-    std::cout << "We have randomly serialized: " << serialize->s1 << serialize->n << serialize->s2;
-    void * v = reinterpret_cast<void *>(serialize);    
-    std::cout << " with address: " << v << std::endl;
-    return (v);
+    std::cout << "We have randomly serialized: " << serialize->s1;
+    std::cout << serialize->n << serialize->s2 << std::endl;
+    return (reinterpret_cast<void *>(serialize));
 }
-
