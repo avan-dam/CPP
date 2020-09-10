@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   header.hpp                                         :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/09 17:07:52 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/10 13:45:18 by Amber         ########   odam.nl         */
+/*   Created: 2020/09/10 13:46:45 by Amber         #+#    #+#                 */
+/*   Updated: 2020/09/10 17:24:40 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-#define HEADER_H
+#include "header.hpp"
 
-#include <iostream>
-#include <cstring>
-#include <cstdlib>
-
-int     checkifchar(char* s);
-int     checkiffloat(char* s);
-int     checkifint(char* s);
-int     checkifdouble(char* s);
-void    letsgodouble(char* s);
-int     checkbigones(std::string s);
-void    letsgochar(char* s);
-void    letsgoint(char* s);
-void    letsgofloat(char* s);
-void    letsgobig(int i);
-
-#endif
+int main(void)
+{
+    srand((unsigned) time(0));
+    void * v = serialize();
+    Data* whatIhave = new (std::nothrow) Data;
+    whatIhave = deserialize(v);
+    std::cout << "We have deserialized: " << whatIhave->s1 << whatIhave->n << whatIhave->s2;
+    std::cout << " with address: " << whatIhave << std::endl;
+    return(0);
+}

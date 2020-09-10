@@ -6,22 +6,22 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/09 17:13:02 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/09 17:57:08 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/10 13:44:10 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.hpp"
 
-void        letsgodouble(std::string s)
+void        letsgodouble(char* s)
 {
     std::cout.precision(1);
-    double d = std::stod(s);
+    double d = std::atof(s);
     if ((d < 32 || d > 126) || (d >= 0 && d <= 9))
         std::cout << "char: impossible" << std::endl;
     else 
     {
         char c = static_cast<char>(d);
-        std::cout << "char: " << std::fixed << c << std::endl;
+        std::cout << "char: '" << std::fixed << c << "'"<< std::endl;
     }
     int i = static_cast<int>(d);
     std::cout << "int: " << std::fixed << i << std::endl;
@@ -35,7 +35,7 @@ void    letsgochar(char* s)
 {
     std::cout.precision(1);
     char c = s[0];
-    std::cout << "char: " << c << std::endl;
+    std::cout << "char: '" << std::fixed << c << "'"<< std::endl;
     int i = static_cast<int>(c);
     std::cout << "int: " << std::fixed << i << std::endl;
     float f = static_cast<float>(c);
@@ -54,7 +54,7 @@ void    letsgoint(char* s)
     else 
     {
         char c = static_cast<char>(i);
-        std::cout << "char: " << std::fixed << c << std::endl;
+        std::cout << "char: '" << std::fixed << c << "'"<< std::endl;
     }
     std::cout << "int: " << std::fixed << i << std::endl;
     float f = static_cast<float>(i);
@@ -73,7 +73,7 @@ void    letsgofloat(char* s)
     else 
     {
         char c = static_cast<char>(f);
-        std::cout << "char: " << std::fixed << c << std::endl;
+        std::cout << "char: '" << std::fixed << c << "'"<< std::endl;
     }
     int i = static_cast<int>(f);
     std::cout << "int: " << std::fixed << i << std::endl;

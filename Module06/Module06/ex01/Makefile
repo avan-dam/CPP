@@ -6,7 +6,7 @@
 #    By: avan-dam <avan-dam@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/08/19 16:15:55 by avan-dam      #+#    #+#                  #
-#    Updated: 2020/09/10 13:26:46 by Amber         ########   odam.nl          #
+#    Updated: 2020/09/10 16:35:17 by Amber         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ G++ = /usr/local/bin/g++-10
 
 FLAGS = -Wall -Wextra -Werror -pedantic -std=c++98
 
-FILES = main.cpp checks.cpp letsgo.cpp
+FILES = main.cpp serialize.cpp deserialize.cpp
 
 all: $(NAME)
 
