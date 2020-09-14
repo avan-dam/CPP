@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/10 13:46:23 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/10 17:26:13 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/14 11:37:21 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <string>
 #include <ctime>
 #include <cstdlib>
+#include <cstring>
+#include <stdlib.h>
 
 struct Data 
 { 
@@ -26,7 +28,8 @@ struct Data
 };
 
 void * 			serialize(void);
-std::string    	changeme(std::string a);
+// std::string    	changeme(std::string a);
+char    	changeme(int n);
 Data * 			deserialize(void * raw);
 
 #endif
