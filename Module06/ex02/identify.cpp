@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/10 22:40:16 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/12 11:55:01 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/14 20:07:02 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,20 @@ void identify_from_reference( Base & p)
         std::cout << "A" << ::std::endl;
         (void)a;
     }
-    catch ( std::bad_cast &bc) {
+    catch (std::exception& e) {
     }
         try {
         B & b = dynamic_cast<B &>(p);
         std::cout << "B" << std::endl;
             (void)b;
     }
-    catch ( std::bad_cast &bc) {
+    catch (std::exception& e) {
     }
         try {
         C & c = dynamic_cast<C &>(p);
         std::cout << "C" << std::endl;
         (void)c;
     }
-    catch ( std::bad_cast &bc) {
+    catch (std::exception& e) {
     }
 }
