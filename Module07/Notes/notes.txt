@@ -1,0 +1,83 @@
+INTRO:
+Templates allows you to make your compiler code for you
+
+Templates:
+Introduces type variables
+Templates allow you to define function templates, class templates or structure templates
+This model of code can then be used by your compiler to instantiate the blanks in which the type variables
+with the types you actually want and use them in the place you actually want.
+
+T max( T x, T y) {
+    return ( x>= y ? x : y);
+}
+
+to tell compiler it is a function template must adjust the follows:
+- add template infront then typename inbetween < >
+address saves memory and also means we can use instances of classes
+Also since this will never change x or y will be interesting to make it const
+so the above becomes:
+    template< typename T>
+    T const & max( T const & x, T const & y) {
+        return ( x>= y ? x : y);
+    }
+you can either do explicit or implicit instanitiation in c++
+so for e.g. 
+    std:: cout << max<float>( c, d) <<std::endl; // explicit instantiation
+    std:: cout << max( c, d) <<std::endl; //implicit instantiation
+
+explicit instationation better
+
+
+    int ret = max<int>( foo(a), foo(b) );
+    std::cout << "max of " << a << " and " << b << " is ";
+    std::cout << ret <<std::endl;
+Here template istantiated before the instantiated function, therefore the template will be an actual function and be real
+The compiler wrote it
+Foo(a) will be run then foo(b) then the results will go to max
+
+solves problem of having multiple functions with similar code but different data types
+
+Now focus on data types
+can also write template classes and structures
+the logic and syntax is the same
+
+remember in C you need a function making a list, one deleting it one adding an element etc...
+
+in c++ using templates you can write a constructor taking a reference on a constant item, here content
+from which we will be able to create our list
+here we can write our list  and the behaviour willbe similar no matter what type we use in our lists
+The principal is still the same
+    List< List< int > > c(a); 
+    // this is a 2D list, a list of lists using just 
+    // one template, I made a list of list of ints but 
+    // could of been a  list of anything
+
+if wanted to use a second type parameter can just add it like below
+template< typename T, typename U>
+can then use U in the definition, both types could also be identical but its not necessary
+
+Didn't write legit list code because long and c++ standard library provides with alot of excellent datastructures 
+writen by great developers
+i.e. STL:STANDARD TEMPLATE LIBRARY
+
+
+DEFAULT TYPE: 10 mins
+template files can be .tpp
+default types tell a template if i dont tell you what type it is assume it is this type
+look at e.g.3
+
+SPECILAIZATION: 15mins
+Possible able to specilase partically or a full template class
+However only possible to specialise entirely a function template since a particlar specilization of a function is the same as an overload
+e.g.4 
+so you basically have a generic one but if the types are exactly as you have 
+then use the specialised one or partially specialised
+syntax for all the types specialized for bools 
+template<>
+class Pair< bool, bool >
+basically can have full specialisation and partical specilization all good
+
+
+CONCLUSION: 3 mins
+
+PARAMETRIC MACROS: 15mins
