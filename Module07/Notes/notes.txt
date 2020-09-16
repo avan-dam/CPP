@@ -75,9 +75,32 @@ then use the specialised one or partially specialised
 syntax for all the types specialized for bools 
 template<>
 class Pair< bool, bool >
-basically can have full specialisation and partical specilization all good
-
-
-CONCLUSION: 3 mins
+Basically can have full specialisation and partical specilization all good
+use typedef and keep it readable and simplify
 
 PARAMETRIC MACROS: 15mins
+what isa macro 
+in c basically everything starting with a # will be an instruction for your preprocessor
+its a little binary n system called cpp a preprocessor
+in the case of defines its about defining a new symbols
+can also have a parametric macro in which the replacing behaviour is kept
+e.g.
+#define max(x, y) ( ((x)>=(y)) ? (x) : (y))
+
+this is probelmatic because no matter how complex what is writen instead of x is it will be copied
+in two places above.
+Most of the time it wont be a problem
+but one common case where the it is BAD
+this is the edge effects
+if the x expression has an edge effect it will be reproduced twice
+edge effect - is something not directly related to the calcalation
+demonstrated by the foo() function - in the defining macro it is 
+so the macro means that the computing time will be doubled
+
+when dealing with chained lists in c can either write some code like a zombie without thinking 
+or write more generic code which is more demanding at run time
+the second option has loads of dereferencing
+there is a thrid approach but very very complicated
+this problem is solved by templates in c++
+
+
