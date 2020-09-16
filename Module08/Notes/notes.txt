@@ -1,0 +1,72 @@
+STL:
+standard template library:
+contains two important things:
+1. containers - generic templated containers able to contain anything
+and are very good implementation of most of the container types you might want
+to use.
+2. Algorithms allowing to make operations on a collection which can be a standard container of the STL 
+or even a container you made yourself.
+
+check the references
+
+an iterators is basically the STL container equivalent of 
+pointers.
+It is not exactly a pointer but it works the same was.
+Instatiating a const_iterator on my list of ints
+std::list<int>::const_iterator
+
+	for (it - lst1.begin(); it != ite; ++it)
+that condition above checks if we have reached the end.
+When it == ite it means we have reached the end of our list
+We can increment the iterator like a pointer
+we can even unreference it like a pointer
+
+    std::map<std::string, IOperation*>  map1;
+map is the C++ version of the hash table
+in c++ we dont have to use strings as keys for our values we can use whatever we want
+here we have a string as a first template and a pointer to iooperations
+which is a type i havent defined here, but lets assume it exists as a value type
+so this is an IOperation map indexed on strings, so i could access it with the corresponding strings
+e.g.
+	map1["opA"] = new OperationA;
+this is the point of using subtyping polymorphism
+
+the vector container:
+    std::vector<int>                    v2(42, 100);
+it is basically an array
+just an array able to contain exactly what we need
+ints IOperation* strings ponys unicorns whatever
+This example creates 42 entries which contain 100 by default.
+
+There are not only const_iterator s there are also simple iterator s too
+cplusplus.com
+iterators are not only for lists
+there are maps too
+there arent any stacks
+
+basically all STL containers may use iterators
+
+algorithms are a collection of funtions of algorithms that are preimplemented
+and able to operate on collections without more precison and performing relatively standard operations
+that you will see everyday
+
+e.g.2
+for each means we will apply an operation on every element of a collection
+for each element of the collection
+in this example outputs every element of my collection.
+it is a collection of ints so i will make a function taking an int
+in the e.g:
+    for_each(lst.begin(), lst.end(), displayInt);
+instead of using a for loop and incrementing manually we can use
+for_each while using two iterators defining the collection on which i will operate
+here it will be the lst.begin() and lst.end()
+It is possible to do much more
+whatsmore reference
+then pass the operation I want to apply (here a function)
+but could of passed anything as long as it was callable on an element 
+of the type in the collection, an int in our case
+
+
+NB e.g. 1 does not compile but e.g. 2 does
+cplusplus.com on algorithms 
+there are times almost all of them are useful.
