@@ -6,7 +6,7 @@
 /*   By: avan-dam <avan-dam@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/03 15:18:06 by avan-dam      #+#    #+#                 */
-/*   Updated: 2020/09/16 13:29:52 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/16 14:11:35 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int main(int argc, char **argv)
     else if (checkbigones(argv[1]) == 1 || checkbigones(argv[1]) == 2)
         letsgobig(checkbigones(argv[1]));
     else
-        std::cout << "not a valid output" << std::endl;
+        std::cout << "not a valid input" << std::endl;
     return (0);
 }
