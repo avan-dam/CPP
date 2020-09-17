@@ -6,14 +6,18 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/09 17:13:02 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/10 13:44:10 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/17 17:24:53 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.hpp"
 
-void        letsgodouble(char* s)
+int        letsgodouble(char* s)
 {
+    if (strcmp(s, "-inf") == 0 || strcmp(s, "+inf") == 0 || strcmp(s, "inf") == 0)
+        return (letsgobig(1));
+    if (strcmp(s, "nan") == 0)
+        return (letsgobig(2));
     std::cout.precision(1);
     double d = std::atof(s);
     if ((d < 32 || d > 126) || (d >= 0 && d <= 9))
@@ -28,7 +32,7 @@ void        letsgodouble(char* s)
     float f = static_cast<float>(d);
     std::cout << "float: " << std::fixed << f << "f" << std::endl;
     std::cout << "double: " << std::fixed << d << std::endl;
-    return;
+    return 1;
 }
 
 void    letsgochar(char* s)
@@ -64,8 +68,12 @@ void    letsgoint(char* s)
     return ;
 }
     
-void    letsgofloat(char* s)
+int    letsgofloat(char* s)
 {
+    if (strcmp(s, "-inff") == 0 || strcmp(s, "+inff") == 0 || strcmp(s, "inff") == 0)
+       return (letsgobig(1));
+    if (strcmp(s, "nanf") == 0)
+        return (letsgobig(2));
     std::cout.precision(1);
     float f = std::atof(s);
     if ((f < 32 || f > 126) || (f >= 0 && f <= 9))
@@ -80,10 +88,10 @@ void    letsgofloat(char* s)
     double d = static_cast<double>(f);
     std::cout << "float: " << std::fixed << f << "f" << std::endl;
     std::cout << "double: " << std::fixed << d << std::endl;
-    return ;
+    return 1;
 }
 
-void    letsgobig(int i)
+int    letsgobig(int i)
 {
     if (i == 1)
     {
@@ -99,58 +107,5 @@ void    letsgobig(int i)
         std::cout << "float: nanf" << std::endl;
         std::cout << "double: nan" << std::endl;  
     }
+    return 1;
 }
-
-
-
-
-
-
-// void        letsgodouble(std::string s)
-// {
-//     std::cout.precision(1);
-//     try {
-//         double d = std::stod(s);
-//         std::cout << "double: " << std::fixed << d << std::endl;
-//         return ;
-//     }
-//     catch (std::exception& e) {
-//         throw invalidImpossibleException();
-//     }
-// }
-
-// void    letsgochar(char* s)
-// {
-//     if (s[0] >  '/' && s[0] < ':')
-//         throw invalidNotDisplayableException();
-//     if (strlen(s) != 1 || s[0] < '!' || s[0] > '~')
-//         throw invalidImpossibleException();
-//     char c = static_cast<char>(s[0]);
-//     std::cout << "char: " << c << std::endl;
-//     return ;
-// }
-
-// void    letsgoint(char* s)
-// {
-//     try {
-//         int i = std::atoi(s);
-//         std::cout << "int: " << i << std::endl;
-//         return ;
-//     }
-//     catch (std::exception& e) {
-//         throw invalidImpossibleException();
-//     }
-// }
-    
-
-// void    letsgofloat(char* s)
-// {
-//     std::cout.precision(1);
-//     try {
-//         float f = static_cast<float>(std::atof(s));
-//         std::cout << "float: " << std::fixed << f << std::endl;
-//     }
-//     catch (std::exception& e) {
-//         throw invalidImpossibleException();
-//     }
-// }

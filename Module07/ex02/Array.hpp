@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/16 13:26:24 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/16 15:40:29 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/17 08:09:40 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ class Array {
             this->_myTs = myTs;
             for (unsigned int i = 0; i < this->_count; i++)
                 this->_myTs[i] = src._myTs[i];
-                // this->_myTs[i] = src._myTs[i]->clone();
             return;
         }
         Array &  operator=( Array const & rhs )
@@ -58,17 +57,9 @@ class Array {
   		};
         T &  operator[](unsigned int n)
         {
-            try
-            {
-                if (n > this->_count)
-                    throw notAccessibleException();
-            }
-            catch (std::exception& e)
-            {
-                std::cerr << e.what() << std::endl; 
-                // return NULL;   
-            }
-             return (this->_myTs[n]);
+            if (n >= this->_count)
+                throw notAccessibleException();
+              return (this->_myTs[n]);
         }
         ~Array()
         {

@@ -66,7 +66,6 @@ then pass the operation I want to apply (here a function)
 but could of passed anything as long as it was callable on an element 
 of the type in the collection, an int in our case
 
-
 NB e.g. 1 does not compile but e.g. 2 does
 cplusplus.com on algorithms 
 there are times almost all of them are useful.

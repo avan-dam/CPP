@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/16 12:20:49 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/16 13:08:05 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/17 08:07:04 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void       iter( T * array, size_t size, void (*f)(T)) {
 template< typename T>
 void    printme(T array)
 {
-    std::cout << array << std::endl;
+    std::cout << "[" << array << "]";
 }
 
 int main()

@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/09 17:06:54 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/16 13:33:25 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/17 17:25:05 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int checkifchar(char* s)
 
 int checkiffloat(char* s)
 {
+    if (strcmp(s, "-inff") == 0 || strcmp(s, "+inff") || strcmp(s, "inff") || strcmp(s, "nanf"))
+        return 1;
     int len = strlen(s);
     int p = 0;
     if (s[len - 1] != 'f')
@@ -50,6 +52,8 @@ int checkifint(char* s)
 
 int checkifdouble(char* s)
 {
+    if (strcmp(s, "-inf") == 0 || strcmp(s, "+inf") == 0 || strcmp(s, "inf") == 0 || strcmp(s, "nan") == 0)
+        return (1);
     int len = strlen(s);
     for(int i = 0; i < len; i++)
     {
@@ -57,13 +61,4 @@ int checkifdouble(char* s)
             return (0);
     }
     return (1);
-}
-
-int checkbigones(std::string s)
-{
-    if (s == "-inff" || s == "+inff" || s == "inff" || s == "-inf" || s == "+inf" || s == "inf")
-        return(1);
-    if (s == "nanf" || s == "nan")
-        return (2);
-    return (0);
 }
