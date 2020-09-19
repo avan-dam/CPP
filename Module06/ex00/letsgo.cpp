@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/09 17:13:02 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/17 17:24:53 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/19 16:48:18 by avan-dam      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int        letsgodouble(char* s)
         return (letsgobig(2));
     std::cout.precision(1);
     double d = std::atof(s);
-    if ((d < 32 || d > 126) || (d >= 0 && d <= 9))
+    if ((d < 32) || (d > 126 && d <= 255))
+        std::cout << "char: Non displayable" << std::endl;
+    else if (d > 255)
         std::cout << "char: impossible" << std::endl;
     else 
     {
@@ -53,14 +55,20 @@ void    letsgoint(char* s)
 {
     std::cout.precision(1);
     int i = std::atoi(s);
-    if ((i < 32 || i > 126) || (i >= 0 && i <= 9))
+    if ((i < 32) || (i > 126 && i <= 255))
         std::cout << "char: Non displayable" << std::endl;
+    else if (i > 255)
+        std::cout << "char: impossible" << std::endl;
     else 
     {
         char c = static_cast<char>(i);
         std::cout << "char: '" << std::fixed << c << "'"<< std::endl;
     }
-    std::cout << "int: " << std::fixed << i << std::endl;
+    // std::cout << "here" << i;
+    if ((i == -2147483648 || i == 2147483647) && ((strcmp(s, "-2147483648") != 0) && strcmp(s, "2147483647") != 0))
+        std::cout << "int: impossible" << std::endl;
+    else
+        std::cout << "int: " << std::fixed << i << std::endl;
     float f = static_cast<float>(i);
     std::cout << "float: " << std::fixed << f << "f" << std::endl;
     double d = static_cast<double>(i);
@@ -76,8 +84,10 @@ int    letsgofloat(char* s)
         return (letsgobig(2));
     std::cout.precision(1);
     float f = std::atof(s);
-    if ((f < 32 || f > 126) || (f >= 0 && f <= 9))
+    if ((f < 32) || (f > 126 && f <= 255))
         std::cout << "char: Non displayable" << std::endl;
+    else if (f > 255)
+        std::cout << "char: impossible" << std::endl;
     else 
     {
         char c = static_cast<char>(f);

@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/10 13:46:45 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/14 11:46:40 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/19 16:07:17 by avan-dam      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int main(void)
     delete static_cast<char *>(v);
     std::cout << "We have deserialized: " << d->s1 << d->n << d->s2;
     delete d;
-    system("leaks convert");
+    // system("leaks ex01");
     return(0);
 }
