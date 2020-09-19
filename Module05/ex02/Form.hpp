@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/23 15:29:53 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/07 13:05:20 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/18 14:26:38 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ class Form
  		public:
 			virtual const char* what() const throw();
   		};
-  		
 		class GradeTooLowException : public std::exception {
  		public:
 			virtual const char* what() const throw();

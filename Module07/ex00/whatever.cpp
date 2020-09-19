@@ -6,27 +6,41 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/16 11:46:45 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/16 13:01:24 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/18 21:03:58 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+class
+Awesome {
+public:
+Awesome( int n ) : _n( n ) {}
+    int getN() const{ return (this->_n); }
+    bool operator==( Awesome const & rhs ) const { return (this->_n == rhs._n); }
+    bool operator!=( Awesome const & rhs ) const { return (this->_n != rhs._n); }
+    bool operator>( Awesome const & rhs ) const { return (this->_n > rhs._n); }
+    bool operator<( Awesome const & rhs ) const { return (this->_n < rhs._n); }
+    bool operator>=( Awesome const & rhs ) const { return (this->_n >= rhs._n); }
+    bool operator<=( Awesome const & rhs ) const { return (this->_n <= rhs._n); }
+private:
+    int _n;
+};
+
 
 template< typename T>
-T       max( T const & x, T const & y) {
+T    max( const T & x, const T & y) {
     return ( (x > y) ? x : y);
 }
 
 template< typename T>
-T       min( T const & x, T const & y) {
+const T &       min( T const & x, T const & y) {
     return ( (x < y) ? x : y);
 }
 
 template< typename T>
 void       swap( T & x, T & y) {
-    T temp;
-    
-    temp = x;
+    T temp = x;
+
     x = y;
     y = temp;
     return ;
@@ -85,5 +99,18 @@ int main(void) {
     mymain();
     std::cout << std::endl;
     theirmain();
+    std::cout << std::endl;
+    Awesome a(9);
+    Awesome b(11);
+    std::cout << "max of a(" << a.getN() << ") and b(" <<b.getN() << ") is "<<std::endl;
+    Awesome result = max( a, b);
+    std:: cout << result.getN() <<std::endl;
+    std::cout << "min of a(" << a.getN() << ") and b(" <<b.getN() << ") is "<<std::endl;
+    result = min( a, b);
+    std:: cout << result.getN() <<std::endl;
+    std::cout << "here are the values of a("<< a.getN() << ") and b(" << b.getN() << ") before swap"<<std::endl;
+    swap(a, b);
+    std::cout << "here are the values of a("<< a.getN() << ") and b(" << b.getN() << ") AFTER swap"<<std::endl;
+
     return 0;
 }

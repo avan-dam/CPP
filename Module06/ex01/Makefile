@@ -6,11 +6,11 @@
 #    By: avan-dam <avan-dam@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/08/19 16:15:55 by avan-dam      #+#    #+#                  #
-#    Updated: 2020/09/10 16:35:17 by Amber         ########   odam.nl          #
+#    Updated: 2020/09/18 13:02:48 by Amber         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = convert
+NAME = ex01
 
 CXX = clang++
 
