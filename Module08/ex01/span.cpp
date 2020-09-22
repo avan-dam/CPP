@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:11 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/22 19:03:20 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/22 20:58:59 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,15 @@ int     Span::shortestSpan()
     return (trying);
 }
 
+int Span::getmeN(int i)
+{
+    return this->_N[i];
+}
+
 void Span::getmevector()
 {
     for (unsigned int i = 0; i < _count; i++)
-        std::cout << "[" << i << "]";
+        std::cout << i << " [" << getmeN(i) << "] ";
 }
 
 Span::fullException::fullException(void) {return;}

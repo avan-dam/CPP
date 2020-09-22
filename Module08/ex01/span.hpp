@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:06 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/22 19:06:16 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/22 21:13:47 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ class Span {
 		template< typename T >
 		void		 addNumber(T begin, T end)
 		{
-			int max = _max;
-			if (*end >= max)
+			if ((end - begin) > _max)
+			{
         		throw tooBigException();
+				return ;
+			}
 			for (T it = begin; _count < _max && it != end; ++it)
 			{
 				_N.push_back(*it);
 				_count++;
 			}
-			_N.push_back(*begin);
-			_count++;
 		}
 		void	addNumber(int i);
 		
@@ -72,6 +72,8 @@ class Span {
 			virtual const char* what() const throw();
   		};
 		void		getmevector();
+		int 		getmeN(int i);
+
     private:
 	    Span();
         std::vector<int>	_N;

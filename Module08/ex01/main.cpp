@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:15 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/22 19:06:35 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/22 21:13:25 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,17 @@ void    mysmallmain()
 void    mybigmain()
 {
     std::vector<int> lst(100000, 42);
-    // unsigned int    size = rand();
     Span sp = Span(100000);
     sp.addNumber<std::vector<int>::iterator>(lst.begin(), lst.end());
-    sp.getmevector();
+    // sp.getmevector();
+    Span sp2 = Span(100000 - 1);
+    try {
+        sp2.addNumber<std::vector<int>::iterator>(lst.begin(), lst.end());
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << e.what() << std::endl; 
+    }
 }
 
 
