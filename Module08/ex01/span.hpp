@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:06 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/22 21:13:47 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/22 23:00:21 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ class Span {
             tooBigException & operator=(tooBigException const & rhs);
 			virtual const char* what() const throw();
   		};
-		void		getmevector();
-		int 		getmeN(int i);
+		int 		getmeN(int i) const;
+		unsigned	getmeCount() const;
 
     private:
 	    Span();
@@ -80,5 +80,7 @@ class Span {
         unsigned int    	_count;
         unsigned int    	_max;
 };
+
+std::ostream &  operator<<(std::ostream & o, Span const & i );
 
 #endif

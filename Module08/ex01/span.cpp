@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:11 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/22 20:58:59 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/22 23:04:51 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,17 +100,6 @@ int     Span::shortestSpan()
     return (trying);
 }
 
-int Span::getmeN(int i)
-{
-    return this->_N[i];
-}
-
-void Span::getmevector()
-{
-    for (unsigned int i = 0; i < _count; i++)
-        std::cout << i << " [" << getmeN(i) << "] ";
-}
-
 Span::fullException::fullException(void) {return;}
 Span::fullException::fullException(fullException const & src) {*this = src;}
 Span::fullException::~fullException(void) throw() {return;}
@@ -139,4 +128,21 @@ Span::tooBigException & Span::tooBigException::operator=(tooBigException const &
 const char*            Span::tooBigException::what() const throw()
 {
     return "The vector you are adding is too large exception";
+}
+
+int Span::getmeN(int i) const
+{
+    return this->_N[i];
+}
+
+unsigned int	Span::getmeCount() const
+{
+    return this->_count;
+}
+
+std::ostream &              operator<<(std::ostream & o, Span const & i )
+{
+    for (unsigned int y = 0; y < i.getmeCount(); y++)
+        o << y << " [" << i.getmeN(y) << "] ";
+    return o;
 }
