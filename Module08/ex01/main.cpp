@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:15 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/18 16:29:24 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/22 19:06:35 by avan-dam      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void        theirmain()
     sp.addNumber(17);
     sp.addNumber(9);
     sp.addNumber(11);
-    std::cout << sp.shortestSpan() << std::endl;
-    std::cout << sp.longestSpan() << std::endl;
+    std::cout << "shortest span: " << sp.shortestSpan() << std::endl;
+    std::cout << "longest span: " << sp.longestSpan() << std::endl;
 }
 
 void    mysmallmain()
@@ -74,17 +74,11 @@ void    mysmallmain()
 
 void    mybigmain()
 {
-    unsigned int    size;
-    size = rand();
-    Span sp = Span(size);
-    // auto numbers = std::vector<int>(sp->_N);
-    // std::list<Span>::iterator it;
-    // int index = 0;
-    // for (it = sp.begin(); it != sp.end(); it++)
-    // {
-    //     it->_N[index] = rand();
-    //     index++;
-    // }
+    std::vector<int> lst(100000, 42);
+    // unsigned int    size = rand();
+    Span sp = Span(100000);
+    sp.addNumber<std::vector<int>::iterator>(lst.begin(), lst.end());
+    sp.getmevector();
 }
 
 

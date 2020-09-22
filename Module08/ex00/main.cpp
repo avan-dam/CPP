@@ -6,16 +6,11 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 08:23:15 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/17 14:55:53 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/22 17:20:30 by avan-dam      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
-
-const char*            notInlist::what() const throw()
-{
-    return "Not in me list";
-}  
 
 template <typename T>
 int easyfind(int i, T lst)

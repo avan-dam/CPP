@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/09 17:06:54 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/21 16:25:19 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/22 18:41:19 by avan-dam      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int checkiffloat(char* s)
         if (s[i] == '.')
             p++;
     }
-    if (len == 1 || p != 1)
+    if (len == 1 || p != 1 || strcmp(".f", s) == 0)
         return (0);
     return (1);
 }

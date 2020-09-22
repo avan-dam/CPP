@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:06 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/18 16:56:33 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/22 19:06:16 by avan-dam      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <list>
 #include <vector>
+#include <iostream>
 
 class Span {
     public:
@@ -26,18 +27,51 @@ class Span {
 		~Span();
 		Span &  operator=( Span const & rhs );
 		Span( Span const & src );
-		void	addNumber(int i);
 		int		longestSpan();
 		int     shortestSpan();
-
+		template< typename T >
+		void		 addNumber(T begin, T end)
+		{
+			int max = _max;
+			if (*end >= max)
+        		throw tooBigException();
+			for (T it = begin; _count < _max && it != end; ++it)
+			{
+				_N.push_back(*it);
+				_count++;
+			}
+			_N.push_back(*begin);
+			_count++;
+		}
+		void	addNumber(int i);
+		
 		class fullException : public std::exception {
  		public:
+            fullException(void);
+            fullException(fullException const & src);
+            ~fullException(void) throw();
+            fullException & operator=(fullException const & rhs);
 			virtual const char* what() const throw();
   		};
+		
 		class tooFewNumbersException : public std::exception {
  		public:
+            tooFewNumbersException(void);
+            tooFewNumbersException(tooFewNumbersException const & src);
+            ~tooFewNumbersException(void) throw();
+            tooFewNumbersException & operator=(tooFewNumbersException const & rhs);
 			virtual const char* what() const throw();
   		};
+		
+		class tooBigException : public std::exception {
+ 		public:
+            tooBigException(void);
+            tooBigException(tooBigException const & src);
+            ~tooBigException(void) throw();
+            tooBigException & operator=(tooBigException const & rhs);
+			virtual const char* what() const throw();
+  		};
+		void		getmevector();
     private:
 	    Span();
         std::vector<int>	_N;

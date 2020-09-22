@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/09 17:13:02 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/21 16:40:52 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/22 16:21:30 by avan-dam      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void        letsgodouble(char* s)
     if (strcmp(s, "-inf") == 0 || strcmp(s, "+inf") == 0 || strcmp(s, "inf") == 0 || strcmp(s, "nan") == 0)
         return (letsgobig(s, 'd'));
     std::cout.precision(1);
-    long longy = atol(s);
+    long double longy = atof(s);
     std::cout.precision(1);
     if (longy < -DBL_MAX || longy > DBL_MAX)
         return (letsgolong(longy));
@@ -31,10 +31,20 @@ void        letsgodouble(char* s)
         char c = static_cast<char>(d);
         std::cout << "char: '" << std::fixed << c << "'"<< std::endl;
     }
-    int i = static_cast<int>(d);
-    std::cout << "int: " << std::fixed << i << std::endl;
-    float f = static_cast<float>(d);
-    std::cout << "float: " << std::fixed << f << "f" << std::endl;
+    if (d > INT_MAX || d < INT_MIN)
+        std::cout << "int: impossible" << std::endl;
+    else
+    {
+        int i = static_cast<int>(d);
+        std::cout << "int: " << std::fixed << i << std::endl;
+    }
+    if (d < -FLT_MAX || d > FLT_MAX)
+        std::cout << "float: impossible" << std::endl;
+    else
+    {
+        float f = static_cast<float>(d);
+        std::cout << "float: " << std::fixed << f << "f" << std::endl;
+    }
     std::cout << "double: " << std::fixed << d << std::endl;
     return ;
 }
@@ -53,7 +63,7 @@ void    letsgochar(char* s)
     return ;
 }
 
-void    letsgolong(long longy)
+void    letsgolong(long double longy)
 {
     std::cout.precision(1);
     std::cout << "char: impossible" << std::endl;
@@ -77,7 +87,7 @@ void    letsgolong(long longy)
 
 void    letsgoint(char* s)
 {
-    long longy = atol(s);
+    long double longy = atof(s);
     std::cout.precision(1);
     if (longy > INT_MAX || longy < INT_MIN)
         return (letsgolong(longy));
@@ -103,7 +113,7 @@ void    letsgofloat(char* s)
 {
     if (strcmp(s, "-inff") == 0 || strcmp(s, "+inff") == 0 || strcmp(s, "inff") == 0 || strcmp(s, "nanf") == 0)
        return (letsgobig(s, 'f'));
-    long longy = atol(s);
+    long double longy = atof(s);
     std::cout.precision(1);
     if (longy < -FLT_MAX || longy > FLT_MAX)
         return (letsgolong(longy));
@@ -118,8 +128,13 @@ void    letsgofloat(char* s)
         char c = static_cast<char>(f);
         std::cout << "char: '" << std::fixed << c << "'"<< std::endl;
     }
-    int i = static_cast<int>(f);
-    std::cout << "int: " << std::fixed << i << std::endl;
+    if (f > INT_MAX || f < INT_MIN)
+        std::cout << "int: impossible" << std::endl;
+    else
+    {
+        int i = static_cast<int>(f);
+        std::cout << "int: " << std::fixed << i << std::endl;
+    }
     double d = static_cast<double>(f);
     std::cout << "float: " << std::fixed << f << "f" << std::endl;
     std::cout << "double: " << std::fixed << d << std::endl;

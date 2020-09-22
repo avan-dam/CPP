@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:11 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/18 17:13:14 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/22 19:03:20 by avan-dam      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,10 @@ Span &    Span::operator=( Span const & rhs )
     {
         this->_max = rhs._max;
         this->_count = rhs._count;
-        // for (int i=0; i<_N.size(); i++) 
-        //     _N.push_back(vect1[i]); 
+        for (unsigned int i=0; i<_count; i++) 
+            _N.push_back(_N[i]); 
     }
     return *this;
-}
-
-const char*            Span::fullException::what() const throw()
-{
-    return "We are now full soz";
-}
-
-const char*            Span::tooFewNumbersException::what() const throw()
-{
-    return "Too Few Numbers Exception";
 }
 
 void    Span::addNumber(int i)
@@ -108,4 +98,40 @@ int     Span::shortestSpan()
         }
     }
     return (trying);
+}
+
+void Span::getmevector()
+{
+    for (unsigned int i = 0; i < _count; i++)
+        std::cout << "[" << i << "]";
+}
+
+Span::fullException::fullException(void) {return;}
+Span::fullException::fullException(fullException const & src) {*this = src;}
+Span::fullException::~fullException(void) throw() {return;}
+Span::fullException & Span::fullException::operator=(fullException const & rhs) {(void)rhs; return (*this);}
+
+const char*            Span::fullException::what() const throw()
+{
+    return "We are now full soz";
+}
+
+Span::tooFewNumbersException::tooFewNumbersException(void) {return;}
+Span::tooFewNumbersException::tooFewNumbersException(tooFewNumbersException const & src) {*this = src;}
+Span::tooFewNumbersException::~tooFewNumbersException(void) throw() {return;}
+Span::tooFewNumbersException & Span::tooFewNumbersException::operator=(tooFewNumbersException const & rhs) {(void)rhs; return (*this);}
+
+const char*            Span::tooFewNumbersException::what() const throw()
+{
+    return "Too Few Numbers Exception";
+}
+
+Span::tooBigException::tooBigException(void) {return;}
+Span::tooBigException::tooBigException(tooBigException const & src) {*this = src;}
+Span::tooBigException::~tooBigException(void) throw() {return;}
+Span::tooBigException & Span::tooBigException::operator=(tooBigException const & rhs) {(void)rhs; return (*this);}
+
+const char*            Span::tooBigException::what() const throw()
+{
+    return "The vector you are adding is too large exception";
 }

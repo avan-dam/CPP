@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/09 17:07:52 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/21 16:41:07 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/22 15:08:29 by avan-dam      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void    letsgochar(char* s);
 void    letsgoint(char* s);
 void    letsgofloat(char* s);
 void    letsgobig(char * s, char c);
-void    letsgolong(long longy);
+void    letsgolong(long double longy);
 
 #endif
