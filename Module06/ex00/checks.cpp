@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/09 17:06:54 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/22 18:41:19 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/27 11:58:19 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ int checkiffloat(char* s)
         return (0);
     for(int i = 0; i < len - 1; i++)
     {
-        if (i == 0 && s[i] == '-')
-            i++;
+        if (i != 0 && s[i] == '-')
+            return (0);
+        if (i != len - 1 && s[i] == 'f')
+            return (0);
         if ((s[i] == 'f' || s[i] < '0' || s[i] > '9') && (s[0] != '-' && s[i] != '.'))
             return (0);
         if (s[i] == '.')

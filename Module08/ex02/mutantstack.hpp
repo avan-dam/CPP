@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   mutantstack.hpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/10 22:09:08 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/27 12:04:57 by Amber         ########   odam.nl         */
+/*   Created: 2020/09/23 12:09:48 by Amber         #+#    #+#                 */
+/*   Updated: 2020/09/23 13:58:20 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.hpp"
+#ifndef MUTANTSTACK_H
+# define MUTANTSTACK_H
 
-Base::~Base()
-{
-    return ;
-}
+#include <iostream>
+#include <stack>
 
-void    function()
-{
-    Base* B = generate();
-    Base& me = *B;
-    identify_from_pointer(B);
-    identify_from_reference(me);
-    delete B;
-}
+template <class T >
+class MutantStack: public std::stack<T>{
+    public:
+        // std::stack<T,Container>::stack
+        MutantStack<T>() : std::stack<T>() {}
+        // std::stack<T,Container>::~stack
+        ~MutantStack<T>() : std::stack<T>() {}
 
-int main(void)
-{
-    srand((unsigned) time(0));
-    function();
-    // system("leaks convert");
-    return (0);
-}
+};
+
+#endif

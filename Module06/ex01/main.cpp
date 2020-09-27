@@ -6,13 +6,13 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/10 13:46:45 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/19 16:07:17 by avan-dam      ########   odam.nl         */
+/*   Updated: 2020/09/27 11:59:34 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.hpp"
 
-int main(void)
+void function()
 {
     srand((unsigned) time(0));
     void * v = serialize();
@@ -20,6 +20,11 @@ int main(void)
     delete static_cast<char *>(v);
     std::cout << "We have deserialized: " << d->s1 << d->n << d->s2;
     delete d;
+}
+
+int main(void)
+{
+    function();
     // system("leaks ex01");
     return(0);
 }
