@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:11 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/22 23:04:51 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/30 15:01:59 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,11 +127,16 @@ Span::tooBigException & Span::tooBigException::operator=(tooBigException const &
 
 const char*            Span::tooBigException::what() const throw()
 {
-    return "The vector you are adding is too large exception";
+    return "Too large exception";
 }
 
 int Span::getmeN(int i) const
 {
+    if (static_cast<unsigned int>(i) >= _count)
+    {
+        throw tooBigException();
+        return -1;
+    }
     return this->_N[i];
 }
 

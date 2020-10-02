@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:15 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/22 23:03:19 by Amber         ########   odam.nl         */
+/*   Updated: 2020/09/30 15:02:51 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,20 @@ void    mybigmain()
     std::vector<int> lst(100000, 42);
     Span sp(100000);
     sp.addNumber<std::vector<int>::iterator>(lst.begin(), lst.end());
-    // std::cout << sp << std::endl;
+        try {
+        std::cout << sp.getmeN(100000) << std::endl;
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << e.what() << std::endl; 
+    }
+    try {
+        std::cout << sp.getmeN(100) << std::endl;
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << e.what() << std::endl; 
+    }
     Span sp2 = Span(100000 - 1);
     try {
         sp2.addNumber<std::vector<int>::iterator>(lst.begin(), lst.end());
