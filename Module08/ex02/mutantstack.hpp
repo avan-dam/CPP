@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/23 12:09:48 by Amber         #+#    #+#                 */
-/*   Updated: 2020/10/02 12:45:10 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/02 12:56:59 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,6 @@ class MutantStack : public std::stack<T,Container>{
         iterator rend() {
             return (this->c.rend());
         }
-
-        // typename std::stack<T, Container>::container_type::iterator begin() {
-        //     return (this->c.begin());
-        // }
-        // typename std::stack<T, Container>::container_type::iterator end() {
-        //     return (this->c.end());
-        // }
-        // typename std::stack<T, Container>::container_type::iterator rbegin() {
-        //     return (this->c.rbegin());
-        // }
-        // typename std::stack<T, Container>::container_type::iterator rend() {
-        //     return (this->c.rend());
-        // }
 };
         
 template <class T, class Container>
