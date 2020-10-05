@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:15 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/30 15:02:51 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/05 15:54:10 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,49 +28,23 @@ void        theirmain()
 
 void    mysmallmain()
 {
-        Span i(3);
+    Span i(3);
     try {
         i.addNumber(0);
-    }
-    catch (std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-    try {
+        std::cout << "0 added" << std::endl;
         i.addNumber(-4);
-    }
-    catch (std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-    try {
+        std::cout << "-4 added" << std::endl;
         i.addNumber(-176);
-    }
-    catch (std::exception& e)
-    {
-        std::cerr << e.what() << std::endl; 
-    }
-    try {
+        std::cout << "-176 added" << std::endl;
         i.addNumber(4);
+        std::cout << "4 added" << std::endl;
     }
     catch (std::exception& e)
     {
         std::cerr << e.what() << std::endl;
     }
-    try {
-        std::cout << i.longestSpan() << std::endl;
-    }
-        catch (std::exception& e)
-    {
-        std::cerr << e.what() << std::endl; 
-    }
-    try {
-        std::cout << i.shortestSpan() << std::endl;
-    }
-        catch (std::exception& e)
-    {
-        std::cerr << e.what() << std::endl; 
-    }
+    std::cout << "Longest span is: " << i.longestSpan() << std::endl;
+    std::cout << "shortest span is: " << i.shortestSpan() << std::endl;
     std::cout << i << std::endl;
 }
 
@@ -79,7 +53,7 @@ void    mybigmain()
     std::vector<int> lst(100000, 42);
     Span sp(100000);
     sp.addNumber<std::vector<int>::iterator>(lst.begin(), lst.end());
-        try {
+    try {
         std::cout << sp.getmeN(100000) << std::endl;
     }
     catch (std::exception& e)
@@ -107,8 +81,8 @@ void    mybigmain()
 int     main(void)
 {
     srand((unsigned) time(0));
-    theirmain();
-    mysmallmain();
+    // theirmain();
+    // mysmallmain();
     mybigmain();
     return 0;
 }

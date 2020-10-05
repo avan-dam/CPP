@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 08:23:15 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/30 14:39:00 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/05 12:41:52 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void     testing_list()
     try {
         easyfind(17, lst);
         std::cout << "Number 20 is in my list" << std::endl;
-        std::cout << "At index " << easyfind(17, lst) << std::endl;
+        std::cout << "At index " << *(easyfind(17, lst)) << std::endl;
     }
     catch (std::exception& e)
     {
@@ -34,7 +34,7 @@ void     testing_list()
     try {
         easyfind(9, lst);
         std::cout << "Number 9 is in my list" << std::endl;
-        std::cout << "At index " << easyfind(9, lst) << std::endl;
+        std::cout << "At index " << *(easyfind(9, lst)) << std::endl;
     }
     catch (std::exception& e)
     {
@@ -53,7 +53,7 @@ void    testing_vector()
     try {
         easyfind(50, v1);
         std::cout << "Number 50 is in my list" << std::endl;
-        std::cout << "At index " << easyfind(50, v1) << std::endl;
+        std::cout << "At index " << *(easyfind(50, v1)) << std::endl;
     }
     catch (std::exception& e)
     {
@@ -62,7 +62,7 @@ void    testing_vector()
     try {
         easyfind(9, v1);
         std::cout << "Number 9 is in my list" << std::endl;
-        std::cout << "At index " << easyfind(9, v1) << std::endl;
+        std::cout << "At index " << *(easyfind(9, v1)) << std::endl;
     }
     catch (std::exception& e)
     {

@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:11 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/30 15:01:59 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/05 15:39:02 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Span &    Span::operator=( Span const & rhs )
     return *this;
 }
 
-void    Span::addNumber(int i)
+void    Span::addNumber(long double i)
 {
     if (_count >= _max)
     {
@@ -52,52 +52,34 @@ void    Span::addNumber(int i)
     _count++;
 }
 
-int     Span::longestSpan()
+long     Span::longestSpan()
 {   
     if (_count <= 1)
-    {
         throw tooFewNumbersException();
-        return (-1);
-    }
-    int small = _N[0];
-    for(unsigned int i = 0; i < _count; i++)
-    {
-        if (_N[i] < small)
-            small = _N[i];
-    }
-    int big = _N[0];
-    for(unsigned int i = 0; i < _count; i++)
-    {
-        if (_N[i] > big)
-            big = _N[i];
-    }
-    return (big - small);
+    long big = *max_element(_N.begin(), _N.end());
+    long small = *min_element(_N.begin(), _N.end());
+    long longy = big - small;
+    return (longy);
 }
 
-int     Span::shortestSpan()
+long     Span::shortestSpan()
 {
-    unsigned int small;
-    unsigned int trying;
+    long small;
+    long trying;
 
     if (_count <= 1)
-    {
         throw tooFewNumbersException();
-        return (-1);
-    }
-    small = static_cast<unsigned int>(_N[0] - _N[1]);
-    trying = small;
-    for (unsigned int i = 0; i < _count; i++)
-    {
-        for (unsigned int y = 0; y < _count; y++)
-        {
-            if (static_cast<unsigned int>(_N[y] - _N[i]) < small && static_cast<unsigned int>(_N[y] - _N[i]) != 0 && y != i)
-            {
-                small = static_cast<unsigned int>(_N[y] - _N[i]);
-                trying = small;
-            }
-        }
-    }
-    return (trying);
+    std::sort(_N.begin(), _N.end());
+	std::vector<int>::const_iterator    it;
+	std::vector<int>::const_iterator	ite = _N.end() - 1;
+    small = _N[1] - _N[0];
+    for (it = _N.begin(); it != ite; ++it)
+	{
+        trying = *(it + 1) - *it;
+		if (trying < small)
+            small = trying;
+	}
+    return (small);
 }
 
 Span::fullException::fullException(void) {return;}
@@ -130,17 +112,14 @@ const char*            Span::tooBigException::what() const throw()
     return "Too large exception";
 }
 
-int Span::getmeN(int i) const
+long Span::getmeN(long i) const
 {
-    if (static_cast<unsigned int>(i) >= _count)
-    {
+    if (static_cast<long>(i) >= _count)
         throw tooBigException();
-        return -1;
-    }
     return this->_N[i];
 }
 
-unsigned int	Span::getmeCount() const
+long	Span::getmeCount() const
 {
     return this->_count;
 }

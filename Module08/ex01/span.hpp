@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:06 by Amber         #+#    #+#                 */
-/*   Updated: 2020/09/22 23:00:21 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/05 15:39:09 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class Span {
 		~Span();
 		Span &  operator=( Span const & rhs );
 		Span( Span const & src );
-		int		longestSpan();
-		int     shortestSpan();
+		long		longestSpan();
+		long	    shortestSpan();
 		template< typename T >
 		void		 addNumber(T begin, T end)
 		{
@@ -43,7 +43,7 @@ class Span {
 				_count++;
 			}
 		}
-		void	addNumber(int i);
+		void	addNumber(long double i);
 		
 		class fullException : public std::exception {
  		public:
@@ -71,14 +71,14 @@ class Span {
             tooBigException & operator=(tooBigException const & rhs);
 			virtual const char* what() const throw();
   		};
-		int 		getmeN(int i) const;
-		unsigned	getmeCount() const;
+		long 		getmeN(long i) const;
+		long			getmeCount() const;
 
     private:
 	    Span();
         std::vector<int>	_N;
-        unsigned int    	_count;
-        unsigned int    	_max;
+        long    			_count;
+        long    			_max;
 };
 
 std::ostream &  operator<<(std::ostream & o, Span const & i );
