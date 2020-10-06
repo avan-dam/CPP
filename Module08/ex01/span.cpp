@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:11 by Amber         #+#    #+#                 */
-/*   Updated: 2020/10/06 14:54:24 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/06 18:12:30 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ long     Span::longestSpan()
     long big = *max_element(_N.begin(), _N.end());
     long small = *min_element(_N.begin(), _N.end());
     long longy = big - small;
-    if (longy == 0)
-        throw noSpanException();
     return (longy);
 }
 
@@ -69,25 +67,20 @@ long     Span::shortestSpan()
 {
     long    small;
     long    trying;
-    int     p;
 
     if (_count <= 1)
         throw tooFewNumbersException();
-    p = 0;
     std::sort(_N.begin(), _N.end());
 	std::vector<int>::const_iterator    it;
 	std::vector<int>::const_iterator	ite = _N.end() - 1;
-    small = 4294967295;
+    small = static_cast<long>(_N[1]) - static_cast<long>(_N[0]);
+    trying = static_cast<long>(_N[1]) - static_cast<long>(_N[0]);
     for (it = _N.begin(); it != ite; ++it)
 	{
-        trying = *(it + 1) - *it;
-        if (trying != 0)
-            p = 1;
-		if (trying < small && trying != 0)
+        trying = static_cast<long>(*(it + 1)) - static_cast<long>(*it);
+        if (trying < small && trying != 0)
             small = trying;
 	}
-    if (p == 0)
-        throw noSpanException();
     return (small);
 }
 
@@ -99,16 +92,6 @@ Span::fullException & Span::fullException::operator=(fullException const & rhs) 
 const char*            Span::fullException::what() const throw()
 {
     return "We are now full soz";
-}
-
-Span::noSpanException::noSpanException(void) {return;}
-Span::noSpanException::noSpanException(noSpanException const & src) {*this = src;}
-Span::noSpanException::~noSpanException(void) throw() {return;}
-Span::noSpanException & Span::noSpanException::operator=(noSpanException const & rhs) {(void)rhs; return (*this);}
-
-const char*            Span::noSpanException::what() const throw()
-{
-    return "No Span Exception";
 }
 
 Span::tooFewNumbersException::tooFewNumbersException(void) {return;}
@@ -131,21 +114,21 @@ const char*            Span::tooBigException::what() const throw()
     return "Too large exception";
 }
 
-long Span::getmeN(long i) const
+int Span::getmeN(int i) const
 {
-    if (static_cast<long>(i) >= _count)
+    if (static_cast<int>(i) >= _count)
         throw tooBigException();
     return this->_N[i];
 }
 
-long	Span::getmeCount() const
+int	Span::getmeCount() const
 {
     return this->_count;
 }
 
 std::ostream &              operator<<(std::ostream & o, Span const & i )
 {
-    for (unsigned int y = 0; y < i.getmeCount(); y++)
+    for (int y = 0; y < i.getmeCount(); y++)
         o << y << " [" << i.getmeN(y) << "] ";
     return o;
 }

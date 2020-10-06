@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/23 12:09:48 by Amber         #+#    #+#                 */
-/*   Updated: 2020/10/02 12:56:59 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/06 17:12:39 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <stack>
+#include <deque>
 #include <list>
 
 template <class T, class Container = std::deque<T> >
@@ -32,12 +33,6 @@ class MutantStack : public std::stack<T,Container>{
         }
         iterator end() {
             return (this->c.end());
-        }
-        iterator rbegin() {
-            return (this->c.rbegin());
-        }
-        iterator rend() {
-            return (this->c.rend());
         }
 };
         

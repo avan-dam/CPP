@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:06 by Amber         #+#    #+#                 */
-/*   Updated: 2020/10/06 14:30:03 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/06 18:13:12 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,13 @@ class Span {
 		    if (_count >= _max)
     		{
         		throw fullException();
-        		return ;
     		}
 			if ((end - begin) > _max)
 			{
         		throw tooBigException();
-				return ;
 			}
-			for (T it = begin; _count < _max && it != end; ++it)
-			{
-				_N.push_back(*it);
-				_count++;
-			}
+			this->_N.insert(this->_N.end(), begin, end);
+			_count = end - begin;
 		}
 		void	addNumber(int i);
 		
@@ -56,15 +51,6 @@ class Span {
             fullException(fullException const & src);
             ~fullException(void) throw();
             fullException & operator=(fullException const & rhs);
-			virtual const char* what() const throw();
-  		};
-		
-		class noSpanException : public std::exception {
- 		public:
-            noSpanException(void);
-            noSpanException(noSpanException const & src);
-            ~noSpanException(void) throw();
-            noSpanException & operator=(noSpanException const & rhs);
 			virtual const char* what() const throw();
   		};
 
@@ -85,8 +71,8 @@ class Span {
             tooBigException & operator=(tooBigException const & rhs);
 			virtual const char* what() const throw();
   		};
-		long 		getmeN(long i) const;
-		long		getmeCount() const;
+		int 		getmeN(int i) const;
+		int		getmeCount() const;
 
     private:
 	    Span();

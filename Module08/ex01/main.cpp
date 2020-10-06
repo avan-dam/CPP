@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:15 by Amber         #+#    #+#                 */
-/*   Updated: 2020/10/06 14:55:50 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/06 17:53:56 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,16 @@ void    mybigmain()
 
 int     main(void)
 {
-    srand((unsigned) time(0));
+    // Span sp = Span(3);
+
+    // sp.addNumber(0);
+    // sp.addNumber(0);
+    // sp.addNumber(0);
+    // std::cout << "shortest span: " << sp.shortestSpan() << std::endl;
+    // std::cout << "longest span: " << sp.longestSpan() << std::endl;
+    // std::cout << sp << std::endl;
     // theirmain();
     // mysmallmain();
-    // mybigmain();
+    mybigmain();
     return 0;
 }
