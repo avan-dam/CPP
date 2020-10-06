@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 08:23:25 by Amber         #+#    #+#                 */
-/*   Updated: 2020/10/05 12:41:06 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/06 16:45:03 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <algorithm>
 #include <list>
 #include <vector>
-
 
 class notInlist : public std::exception {
  	public:
@@ -35,14 +34,6 @@ typename T::const_iterator easyfind(int i, T &lst)
     if (myend == lst.end())
         throw notInlist();
     return myend;
-    // int index = 0;
-    // for (typename T::const_iterator it = lst.begin(); it != lst.end(); ++it)
-    // {
-    //     if(*it == i)
-    //         return index;
-    //     index++;
-    // }
-    // throw notInlist();
 }
 
 #endif

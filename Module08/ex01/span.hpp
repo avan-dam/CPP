@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:06 by Amber         #+#    #+#                 */
-/*   Updated: 2020/10/05 15:39:09 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/06 14:30:03 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ class Span {
 		template< typename T >
 		void		 addNumber(T begin, T end)
 		{
+		    if (_count >= _max)
+    		{
+        		throw fullException();
+        		return ;
+    		}
 			if ((end - begin) > _max)
 			{
         		throw tooBigException();
@@ -43,7 +48,7 @@ class Span {
 				_count++;
 			}
 		}
-		void	addNumber(long double i);
+		void	addNumber(int i);
 		
 		class fullException : public std::exception {
  		public:
@@ -54,6 +59,15 @@ class Span {
 			virtual const char* what() const throw();
   		};
 		
+		class noSpanException : public std::exception {
+ 		public:
+            noSpanException(void);
+            noSpanException(noSpanException const & src);
+            ~noSpanException(void) throw();
+            noSpanException & operator=(noSpanException const & rhs);
+			virtual const char* what() const throw();
+  		};
+
 		class tooFewNumbersException : public std::exception {
  		public:
             tooFewNumbersException(void);
@@ -72,7 +86,7 @@ class Span {
 			virtual const char* what() const throw();
   		};
 		long 		getmeN(long i) const;
-		long			getmeCount() const;
+		long		getmeCount() const;
 
     private:
 	    Span();

@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:11 by Amber         #+#    #+#                 */
-/*   Updated: 2020/10/05 15:39:02 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/06 14:54:24 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,14 @@ Span &    Span::operator=( Span const & rhs )
     {
         this->_max = rhs._max;
         this->_count = rhs._count;
+        this->_N = rhs._N;
         for (unsigned int i=0; i<_count; i++) 
             _N.push_back(_N[i]); 
     }
     return *this;
 }
 
-void    Span::addNumber(long double i)
+void    Span::addNumber(int i)
 {
     if (_count >= _max)
     {
@@ -59,26 +60,34 @@ long     Span::longestSpan()
     long big = *max_element(_N.begin(), _N.end());
     long small = *min_element(_N.begin(), _N.end());
     long longy = big - small;
+    if (longy == 0)
+        throw noSpanException();
     return (longy);
 }
 
 long     Span::shortestSpan()
 {
-    long small;
-    long trying;
+    long    small;
+    long    trying;
+    int     p;
 
     if (_count <= 1)
         throw tooFewNumbersException();
+    p = 0;
     std::sort(_N.begin(), _N.end());
 	std::vector<int>::const_iterator    it;
 	std::vector<int>::const_iterator	ite = _N.end() - 1;
-    small = _N[1] - _N[0];
+    small = 4294967295;
     for (it = _N.begin(); it != ite; ++it)
 	{
         trying = *(it + 1) - *it;
-		if (trying < small)
+        if (trying != 0)
+            p = 1;
+		if (trying < small && trying != 0)
             small = trying;
 	}
+    if (p == 0)
+        throw noSpanException();
     return (small);
 }
 
@@ -90,6 +99,16 @@ Span::fullException & Span::fullException::operator=(fullException const & rhs) 
 const char*            Span::fullException::what() const throw()
 {
     return "We are now full soz";
+}
+
+Span::noSpanException::noSpanException(void) {return;}
+Span::noSpanException::noSpanException(noSpanException const & src) {*this = src;}
+Span::noSpanException::~noSpanException(void) throw() {return;}
+Span::noSpanException & Span::noSpanException::operator=(noSpanException const & rhs) {(void)rhs; return (*this);}
+
+const char*            Span::noSpanException::what() const throw()
+{
+    return "No Span Exception";
 }
 
 Span::tooFewNumbersException::tooFewNumbersException(void) {return;}

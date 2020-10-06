@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:15 by Amber         #+#    #+#                 */
-/*   Updated: 2020/10/05 15:54:10 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/06 14:55:50 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,6 @@ int     main(void)
     srand((unsigned) time(0));
     // theirmain();
     // mysmallmain();
-    mybigmain();
+    // mybigmain();
     return 0;
 }
