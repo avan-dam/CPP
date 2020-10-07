@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/23 12:09:25 by Amber         #+#    #+#                 */
-/*   Updated: 2020/10/06 17:12:46 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/07 14:11:48 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void    mymain()
     yay.push(7.1f);
     yay.push(77.2f);
     yay.push(777.3f);
-    std::cout << "push works, pushed 7.0f and 77.0f and 777.0f!" << std::endl;
+    std::cout << "push works, pushed 7.1f and 77.2f and 777.3f!" << std::endl;
     std::cout << "top works and gives us: " << yay.top() << std::endl;
     std::cout << "empty works and gives us: " << std::boolalpha<<  yay.empty() << std::endl;
     std::cout << "size works and gives us: " << yay.size() << std::endl;
@@ -96,9 +96,8 @@ void    mymain()
     {
         std::cout << "[" << *it << "]";
         ++it;
-    }    
-
-
+    }  
+    std::cout << std::endl; 
 }
 
 int main()

@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 14:58:06 by Amber         #+#    #+#                 */
-/*   Updated: 2020/10/06 18:13:12 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/07 16:52:01 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Span {
     		{
         		throw fullException();
     		}
-			if ((end - begin) > _max)
+			if ((end - begin) > _max - _count)
 			{
         		throw tooBigException();
 			}
