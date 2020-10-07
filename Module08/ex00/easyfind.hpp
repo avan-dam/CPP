@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 08:23:25 by Amber         #+#    #+#                 */
-/*   Updated: 2020/10/06 16:45:03 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/07 11:07:49 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ class notInlist : public std::exception {
   	};
 
 template <typename T>
-typename T::const_iterator easyfind(int i, T &lst)
+typename T::iterator easyfind(const int& i, T& lst)
 {
-    typename T::const_iterator myend = std::find(lst.begin(), lst.end(), i);
+    typename T::iterator myend;
+    myend = std::find(lst.begin(), lst.end(), i);
     if (myend == lst.end())
         throw notInlist();
     return myend;
