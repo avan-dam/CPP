@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 08:23:25 by Amber         #+#    #+#                 */
-/*   Updated: 2020/10/07 11:07:49 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/07 11:28:31 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class notInlist : public std::exception {
         notInlist(notInlist const & src) {*this = src;}
         ~notInlist(void) throw() {return;}
         notInlist & operator=(notInlist const & rhs) {(void)rhs; return (*this);}
-		virtual const char* what() const throw() {return "Not in me list";}
+		virtual const char* what() const throw() {return "not found";}
   	};
 
 template <typename T>

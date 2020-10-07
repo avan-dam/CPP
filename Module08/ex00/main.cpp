@@ -6,7 +6,7 @@
 /*   By: Amber <Amber@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 08:23:15 by Amber         #+#    #+#                 */
-/*   Updated: 2020/10/07 11:03:11 by Amber         ########   odam.nl         */
+/*   Updated: 2020/10/07 11:28:52 by Amber         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,19 @@ void     testing_list()
 
     try {
         std::list<int>::iterator found = easyfind(17, lst);
-        std::cout << "Number 17 is in my list at index " << *found << std::endl;
+        std::cout << "Element found: " << *found << std::endl;
     }
     catch (std::exception& e)
     {
         std::cerr << "Number 17 is: " << e.what() << std::endl; 
     }
     try {
-        easyfind(9, lst);
-        std::cout << "Number 9 is in my list at index " << *(easyfind(9, lst)) << std::endl;
+        std::list<int>::iterator found = easyfind(220, lst);
+        std::cout << "Element found: " << *found << std::endl;
     }
     catch (std::exception& e)
     {
-        std::cerr << "Number 9 is " << e.what() << std::endl; 
+        std::cerr << "Number 220 is " << e.what() << std::endl; 
     }
 }
 
@@ -49,17 +49,16 @@ void    testing_vector()
     v1.push_back(4);
     v1.push_back(50);
     try {
-        easyfind(50, v1);
-        std::cout << "Number 50 is in my list at index " << *(easyfind(50, v1)) << std::endl;
+        std::vector<int>::iterator found = easyfind(50, v1);
+        std::cout << "Element found: " << *found << std::endl;
     }
     catch (std::exception& e)
     {
-        std::cerr << "Number 10 is: " << e.what() << std::endl; 
+        std::cerr << "Number 50 is: " << e.what() << std::endl; 
     }
     try {
-        easyfind(9, v1);
-        std::cout << "Number 9 is in my list" << std::endl;
-        std::cout << "At index " << *(easyfind(9, v1)) << std::endl;
+        std::vector<int>::iterator found = easyfind(9, v1);
+        std::cout << "Element found: " << *found << std::endl;
     }
     catch (std::exception& e)
     {
