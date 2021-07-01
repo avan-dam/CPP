@@ -27,7 +27,8 @@ To compile simply run
 make
 ```
 
-Subjects are included in each module
+Subjects are included in each module.
+The notes container as for personal use, and helped me understand the content.
 
 
 All modules passed with 100/100
