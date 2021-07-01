@@ -3,20 +3,15 @@ An introduction to C plus plus. This project consists of 9 modules.
 
 
 Modules cover:
-- Namespaces
-- Classes
-- Exceptions
-- Polymorphism 
-- Operators
-- Inheritance
-- Templates
-- Polymorphism
-- Abstract classes
-- Interfaces
-- Overloading
-- Casting
-- File streams
-- Iterators
+- Module00 : Namespace, class, member functions, stdio stream, initialization lists, static, const, and lots of basic stuff
+- Module01 : Memory allocation, References, Pointers to members, File streams
+- Module02 : Ad-hoc polymorphism, operators overload and canonical classes
+- Module03 : Inheritance
+- Module04 : Subtype polymorphism, abstract classes, interfaces
+- Module05 : Repetition and Exceptions
+- Module06 : Casts
+- Module07 : Templates
+- Module08 : Templated containers, iterators, algorithms
 
 
 **Usage:**
